@@ -4,7 +4,16 @@ Springbok is built to be future proof, with a focus on speed and cute stripes.
 
 ## Goals
 
-While the primary goal is to gain experience working with Symfony 2 and MongoDB (or any document oriented db's), we do plan on creating a handy, fully functional ticket system. There will be comments, notifications, categories and tags.
+While the primary goal is to gain experience working with Symfony 2 and MongoDB
+(or any document oriented db's), we do plan on creating a handy, fully
+functional ticket system, including support for:
+
+* multiple projects and subprojects
+* composite tickets
+* tags
+* milestones
+* user roles
+* and much more!
 
 ## Technology
 
