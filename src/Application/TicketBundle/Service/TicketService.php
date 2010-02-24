@@ -14,10 +14,11 @@ use Application\TicketBundle\Model;
 /**
  * TicketService
  *
- * a service to work with tickets, at first this may seem to just add abstraction
+ * A service to work with tickets, at first this may seem to just add abstraction
  * but this service as a whole is a reusable component for your controllers, apis,
  * command line interfaces, etc. It does not have to care about the persistance
- * layer, which is a job for the datamappers.
+ * layer, which is a job for the datamappers. For instance, if you want to add
+ * caching to the model layer, you can do it here.
  *
  * @category		Springbok
  * @package		TicketBundle
@@ -29,7 +30,7 @@ class TicketService extends Service
      * get Ticket by id
      *
      * @param int $id
-     * @return \Application\TicketBundle\Model\Ticket
+     * @return Ticket
      */
     public function getById($id)
     {
@@ -40,7 +41,7 @@ class TicketService extends Service
      * get Tickets by tag(s)
      *
      * @param string|array $tag
-     * @return array[int]\Application\TicketBundle\Model\Ticket
+     * @return array[int]Ticket
      */
     public function getByTag($tag)
     {
@@ -51,7 +52,7 @@ class TicketService extends Service
      * get tickets by user
      *
      * @param User $user
-     * @return array[int]\Application\TicketBundle\Model\Ticket
+     * @return array[int]Ticket
      */
     public function getByUser(User $user)
     {
