@@ -44,13 +44,6 @@ class Mapper
     public function getByUser(User $user) {}
 
     /**
-     * get tickets by milestone
-     *
-     * @param Milestone $milestone
-     */
-    public function getByMilestone(Milestone $milestone) {}
-
-    /**
      * save a ticket
      * 
      * @param Ticket $ticket
