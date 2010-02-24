@@ -22,6 +22,7 @@ use Application\TicketBundle\Model;
  */
 class TicketService extends Service
 {
+
     /**
      * get a ticket by it's id
      *
@@ -41,4 +42,14 @@ class TicketService extends Service
     public function getTicketsByMilestone(Milestone $milestone)
     {
     }
+
+    /**
+     * get mapper
+     *
+     * this has to be DI-i-fied
+     *
+     * @return TicketMapper
+     */
+    protected function getMapper()
+    {}
 }
