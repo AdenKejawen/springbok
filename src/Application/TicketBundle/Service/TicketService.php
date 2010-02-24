@@ -9,7 +9,7 @@
 
 namespace Application\TicketBundle\Service;
 
-use Symfony\Framework\WebBundle\Controller;
+use Application\TicketBundle\Model;
 
 /**
  * TicketService
@@ -22,13 +22,23 @@ use Symfony\Framework\WebBundle\Controller;
  */
 class TicketService extends Service
 {
-	/**
-	 * get tickets by milestone
-	 *
-	 * @param Milestone $milestone
-	 * @return array[int]Ticket
-	 */
-	public function getTicketsByMilestone(Milestone $milestone) 
-	{
-	}
+    /**
+     * get a ticket by it's id
+     *
+     * @param int $id 
+     * @return Model\Ticket $ticket
+     */
+    public function getById($id)
+    {
+    }
+
+    /**
+     * get tickets by milestone
+     *
+     * @param \Application\SpringbokBundle\Model\Milestone Milestone $milestone
+     * @return array[int]Ticket
+     */
+    public function getTicketsByMilestone(Milestone $milestone)
+    {
+    }
 }
