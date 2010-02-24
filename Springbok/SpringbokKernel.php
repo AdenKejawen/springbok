@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__.'/../src/autoload.php';
-require_once __DIR__.'/../src/vendor/Symfony/src/Symfony/Foundation/bootstrap.php';
+require_once __DIR__.'/../src/vendor/symfony/src/Symfony/Foundation/bootstrap.php';
 
 use Symfony\Foundation\Kernel;
 use Symfony\Components\DependencyInjection\Loader\YamlFileLoader as ContainerLoader;
