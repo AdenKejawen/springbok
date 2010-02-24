@@ -26,6 +26,7 @@ class SpringbokKernel extends Kernel
       new Symfony\Framework\SwiftmailerBundle\Bundle(),
 
       // register your bundles here
+      new Application\SpringbokBundle\Bundle(),
     );
   }
 
