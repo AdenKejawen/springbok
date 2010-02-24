@@ -47,4 +47,21 @@ class Ticket
      * @var array
      */
     public $tags = array();
+
+    /**
+     * name of the reporter
+     *
+     * @var string
+     */
+    public $reporterName;
+    
+    /**
+     * get reporter
+     * 
+     * @return User
+     */
+    public function getReporter()
+    {
+        //use service to find reporter using $this->reporterName;
+    }
 }
