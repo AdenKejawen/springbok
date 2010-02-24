@@ -22,7 +22,6 @@ use Application\TicketBundle\Model;
  */
 class TicketService extends Service
 {
-
     /**
      * get a ticket by it's id
      *
@@ -30,25 +29,23 @@ class TicketService extends Service
      * @return Model\Ticket $ticket
      */
     public function getById($id)
-    {
-    }
+    {}
 
     /**
      * get tickets by milestone
      *
-     * @param \Application\SpringbokBundle\Model\Milestone Milestone $milestone
+     * @param Model\Milestone Milestone $milestone
      * @return array[int]Ticket
      */
-    public function getTicketsByMilestone(Milestone $milestone)
-    {
-    }
+    public function getByMilestone(Milestone $milestone)
+    {}
 
     /**
      * get mapper
      *
      * this has to be DI-i-fied
      *
-     * @return TicketMapper
+     * @return Model\Ticket\Mapper
      */
     protected function getMapper()
     {}

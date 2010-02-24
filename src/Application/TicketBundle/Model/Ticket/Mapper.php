@@ -6,6 +6,8 @@
 
 namespace Application\TicketBundle\Model\Ticket;
 
+use \Application\SpringbokBundle\Model;
+
 /**
  * Mapper
  *
@@ -42,21 +44,24 @@ class Mapper
     public function getByUser(User $user) {}
 
     /**
+     * get tickets by milestone
+     *
+     * @param Milestone $milestone
+     */
+    public function getByMilestone(Milestone $milestone) {}
+
+    /**
      * save a ticket
      * 
      * @param Ticket $ticket
      * @return bool
      */
-    public function save(Ticket $ticket)
-    {
-    }
+    public function save(Ticket $ticket) {}
 
     /**
      * get mongo instance
      *
      * @return somethigmongo-y
      */
-    protected function getMongo()
-    {
-    }
+    protected function getMongo() {}
 }
