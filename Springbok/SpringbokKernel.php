@@ -7,7 +7,7 @@ use Symfony\Foundation\Kernel;
 use Symfony\Components\DependencyInjection\Loader\YamlFileLoader as ContainerLoader;
 use Symfony\Components\Routing\Loader\YamlFileLoader as RoutingLoader;
 
-class springbokKernel extends Kernel
+class SpringbokKernel extends Kernel
 {
   public function registerRootDir()
   {
