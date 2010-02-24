@@ -20,5 +20,24 @@ use Application\SpringbokBundle\Model;
  */
 class Milestone extends DomainObject
 {
-    
+    /**
+     * name for the milestone
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * description
+     * 
+     * @var string
+     */
+    public $description;
+
+    /**
+     * tickets in this milestone
+     *
+     * @var array[int]Ticket
+     */
+    public $tickets = array();
 }
