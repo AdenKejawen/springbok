@@ -20,5 +20,31 @@ namespace Application\TicketBundle\Model;
  */
 class Ticket
 {
-    
+    /**
+     * id
+     *
+     * @var id
+     */
+    public $id;
+
+    /**
+     * title
+     *
+     * @var string
+     */
+    public $title;
+
+    /**
+     * description
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * tags
+     *
+     * @var array
+     */
+    public $tags = array();
 }
