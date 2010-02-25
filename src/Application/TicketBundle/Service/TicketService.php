@@ -9,8 +9,6 @@
 
 namespace Application\TicketBundle\Service;
 use \Application\TicketBundle\Model\Ticket;
-use \Application\SpringbokBundle\Service;
-
 
 /**
  * TicketService
@@ -26,7 +24,7 @@ use \Application\SpringbokBundle\Service;
  * @package           TicketBundle
  * @subpackage        Service
  */
-class TicketService extends Service\BaseService
+class TicketService
 {
   /**
    * ticket mapper
@@ -40,7 +38,7 @@ class TicketService extends Service\BaseService
    *
    * @param Mapper $mapper
    */
-  public function __construct(\Application\TicketBundle\Model\Ticket\Mapper $mapper = null)
+  public function __construct(\Application\TicketBundle\Model\Ticket\Mapper $mapper)
   {
     $this->mapper = $mapper;
   }
