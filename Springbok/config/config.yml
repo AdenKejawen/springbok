@@ -7,15 +7,3 @@ web.web: ~
 web.templating:
   escaping:       htmlspecialchars
   assets_version: SomeVersionScheme
-
-doctrine.dbal:
-  dbname:   xxxxxxxx
-  username: root
-  password: ~
-
-doctrine.orm: ~
-
-swift.mailer:
-  transport: gmail
-  username:  xxxxxxxx
-  password:  xxxxxxxx
