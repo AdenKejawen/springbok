@@ -9,6 +9,8 @@
 
 namespace Application\SpringbokBundle\Service;
 
+use Symfony\Components\DependencyInjection;
+
 /**
  * Service class
  * 
@@ -20,5 +22,5 @@ namespace Application\SpringbokBundle\Service;
  */
 class Service
 {
-	
+
 }
