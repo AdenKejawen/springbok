@@ -27,8 +27,4 @@ class Mapper extends Mapper
 
     }
 
-    protected function getMongo()
-    {
-        
-    }
 }

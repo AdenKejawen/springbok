@@ -50,11 +50,4 @@ class Mapper
      * @return bool
      */
     public function save(Ticket $ticket) {}
-
-    /**
-     * get mongo instance
-     *
-     * @return somethigmongo-y
-     */
-    protected function getMongo() {}
 }
