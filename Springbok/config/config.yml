@@ -7,3 +7,11 @@ web.web: ~
 web.templating:
   escaping:       htmlspecialchars
   assets_version: SomeVersionScheme
+
+
+services:
+  ticket.mapper:
+    class:  Application\TicketBundle\Model\Ticket\Mapper
+  ticket:
+    class:  Application\TicketBundle\Service\TicketService
+    arguments: [@ticket.mapper]
