@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+<!--
+
+services:
+  ticket.mapper:
+    class:  Application\TicketBundle\Model\Ticket\Mapper
+  ticket:
+    class:  Application\TicketBundle\Service\TicketService
+    arguments: [@ticket.mapper]
+-->
+
+  <services>
+    <service id="ticket.mapper" class="Application\TicketBundle\Model\Ticket\Mapper">
+      <argument type="string">%mongo.connection.host%:%mongo.connection.port%</argument>
+    </service>
+    <service id="ticket" class="Application\TicketBundle\Service\TicketService">
+      <argument type="service" id="ticket.mapper">
+    </service>
+  </services>
+</container>
