@@ -40,17 +40,17 @@ class SpringbokKernel extends Kernel
   public function registerBundles()
   {
     return array(
-            new Symfony\Foundation\Bundle\KernelBundle(),
-            new Symfony\Framework\WebBundle\Bundle(),
+      new Symfony\Foundation\Bundle\KernelBundle(),
+      new Symfony\Framework\WebBundle\Bundle(),
 
-            // enable third-party bundles
-            new Symfony\Framework\ZendBundle\Bundle(),
-            new Symfony\Framework\DoctrineBundle\Bundle(),
-            new Symfony\Framework\SwiftmailerBundle\Bundle(),
+      // enable third-party bundles
+      new Symfony\Framework\ZendBundle\Bundle(),
+      new Symfony\Framework\DoctrineBundle\Bundle(),
+      new Symfony\Framework\SwiftmailerBundle\Bundle(),
 
-            // register your bundles here
-            new Application\SpringbokBundle\Bundle(),
-            new Application\TicketBundle\Bundle(),
+      // register your bundles here
+      new Application\SpringbokBundle\Bundle(),
+      new Application\TicketBundle\Bundle(),
     );
   }
 
@@ -62,9 +62,9 @@ class SpringbokKernel extends Kernel
   public function registerBundleDirs()
   {
     return array(
-            'Application'        => __DIR__.'/../src/Application',
-            'Bundle'             => __DIR__.'/../src/Bundle',
-            'Symfony\\Framework' => __DIR__.'/../src/vendor/Symfony/src/Symfony/Framework',
+      'Application'        => __DIR__.'/../src/Application',
+      'Bundle'             => __DIR__.'/../src/Bundle',
+      'Symfony\\Framework' => __DIR__.'/../src/vendor/Symfony/src/Symfony/Framework',
     );
   }
 
@@ -76,8 +76,7 @@ class SpringbokKernel extends Kernel
   public function registerContainerConfiguration()
   {
     $loader = new ContainerLoader($this->getBundleDirs());
-
-    return $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
+    return $loader->load(__DIR__.'/config/config_' . $this->getEnvironment() . '.yml');
   }
 
   /**
@@ -88,7 +87,6 @@ class SpringbokKernel extends Kernel
   public function registerRoutes()
   {
     $loader = new RoutingLoader($this->getBundleDirs());
-
     return $loader->load(__DIR__.'/config/routing.yml');
   }
 }
