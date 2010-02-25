@@ -8,7 +8,7 @@ class SpringbokController extends Controller
 {
   public function indexAction()
   {
-    var_dump($this->container->getTicketService());
+    var_dump($this->container->getTicketBluhService());
     return $this->render('SpringbokBundle:Springbok:index');
   }
 }

@@ -8,9 +8,11 @@
 
 namespace Application\TicketBundle;
 
-use Application\Ticketbundle\DependencyInjection;
+use Application\Ticketbundle\DependencyInjection\TicketExtension;
 use Symfony\Foundation\Bundle\Bundle as BaseBundle;
 use Symfony\Components\DependencyInjection\ContainerInterface;
+use Symfony\Components\DependencyInjection\Loader\Loader;
+use Symfony\Components\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * main configurator class for bundle
@@ -27,6 +29,6 @@ class Bundle extends BaseBundle
    */
   public function buildContainer(ContainerInterface $container)
   {
-    Loader::registerExtension(new DependencyInjection\ServiceExtension());
+    Loader::registerExtension(new TicketExtension());
   }
 }

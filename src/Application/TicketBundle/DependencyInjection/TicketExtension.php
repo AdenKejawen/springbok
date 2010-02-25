@@ -1,6 +1,6 @@
 <?php
 /**
- * ServiceExtension.php
+ * TicketExtension.php
  *
  * @category        Springbok
  * @package         
@@ -14,13 +14,13 @@ use Symfony\Components\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Components\DependencyInjection\BuilderConfiguration;
 
 /**
- * ServiceExtension
+ * TicketExtension
  *
  * @category        Springbok
  * @package         
  * @subpackage      
  */
-class ServiceExtension extends LoaderExtension
+class TicketExtension extends LoaderExtension
 {
 
   protected $resources = array(
@@ -29,10 +29,10 @@ class ServiceExtension extends LoaderExtension
 
   public function getAlias()
   {
-    return 'service';
+    return 'ticket';
   }
 
-  public function ticketLoad($config)
+  public function bluhLoad($config)
   {
     $configuration = new BuilderConfiguration();
 
