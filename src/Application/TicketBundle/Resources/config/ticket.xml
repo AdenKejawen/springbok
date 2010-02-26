@@ -5,7 +5,7 @@
 
   <services>
     <service id="ticket.mapper" class="Application\TicketBundle\Model\Ticket\Mapper">
-      <argument type="service" id="mongo.connection" />
+      <argument type="service" id="mongo.database" />
     </service>
     <service id="ticket" class="Application\TicketBundle\Service\TicketService">
       <argument type="service" id="ticket.mapper" />

@@ -19,6 +19,13 @@ use \Application\SpringbokBundle\Model;
  */
 class Mapper
 {
+  protected $mongo;
+
+  public function __construct(MongoDB $mongo)
+  {
+    $this->mongo = $mongo;
+  }
+
   /**
    * get Ticket by id
    * 
@@ -27,6 +34,7 @@ class Mapper
    */
   public function getById($id)
   {
+    return $this->mongo->tickets->findOne(array('_id' => new MongoId($id)), true);
   }
 
   /**
