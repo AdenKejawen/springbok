@@ -22,9 +22,13 @@ use Application\TicketBundle\Model;
  */
 class Mapper extends Mapper
 {
-    public function getById($id)
-    {
-
-    }
-
+  /**
+   * get Milestone by id
+   * 
+   * @param int $id 
+   * @return \Application\TicketBundle\Model\Milestone
+   */
+  public function getById($id)
+  {
+  }
 }

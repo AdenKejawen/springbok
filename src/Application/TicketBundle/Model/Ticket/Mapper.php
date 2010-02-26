@@ -19,35 +19,43 @@ use \Application\SpringbokBundle\Model;
  */
 class Mapper
 {
-    /**
-     * get Ticket by id
-     * 
-     * @param int $id 
-     * @return \Application\TicketBundle\Model\Ticket
-     */
-    public function getById($id) {}
+  /**
+   * get Ticket by id
+   * 
+   * @param int $id 
+   * @return \Application\TicketBundle\Model\Ticket
+   */
+  public function getById($id)
+  {
+  }
 
-    /**
-     * get Tickets by tag(s)
-     *
-     * @param string|array $tag
-     * @return array[int]\Application\TicketBundle\Model\Ticket
-     */
-    public function getByTag($tag) {}
+  /**
+   * get Tickets by tag(s)
+   *
+   * @param string|array $tag
+   * @return array[int]\Application\TicketBundle\Model\Ticket
+   */
+  public function getByTag($tag)
+  {
+  }
 
-    /**
-     * get tickets by user
-     *
-     * @param User $user
-     * @return array[int]\Application\TicketBundle\Model\Ticket
-     */
-    public function getByUser(User $user) {}
+  /**
+   * get tickets by user
+   *
+   * @param User $user
+   * @return array[int]\Application\TicketBundle\Model\Ticket
+   */
+  public function getByUser(User $user)
+  {
+  }
 
-    /**
-     * save a ticket
-     * 
-     * @param Ticket $ticket
-     * @return bool
-     */
-    public function save(Ticket $ticket) {}
+  /**
+   * save a ticket
+   * 
+   * @param Ticket $ticket
+   * @return bool
+   */
+  public function save(Ticket $ticket)
+  {
+  }
 }

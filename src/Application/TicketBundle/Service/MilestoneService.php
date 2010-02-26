@@ -20,21 +20,22 @@ use Application\TicketBundle\Model;
  */
 class MilestoneService extends Service
 {
-    /**
-     * get milestone by id
-     *
-     * @param int $id
-     * @return Milestone
-     */
-    public function getById($id)
-    {
-        
-    }
+  /**
+   * get milestone by id
+   *
+   * @param int $id
+   * @return Milestone
+   */
+  public function getById($id)
+  {
+  }
 
-    /**
-     * get mapper
-     *
-     * 
-     */
-    protected function getMapper() {}
+  /**
+   * get mapper
+   *
+   * 
+   */
+  protected function getMapper()
+  {
+  }
 }

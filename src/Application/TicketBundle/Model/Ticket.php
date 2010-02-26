@@ -20,48 +20,48 @@ namespace Application\TicketBundle\Model;
  */
 class Ticket
 {
-    /**
-     * id
-     *
-     * @var id
-     */
-    public $id;
+  /**
+   * id
+   *
+   * @var id
+   */
+  public $id;
 
-    /**
-     * title
-     *
-     * @var string
-     */
-    public $title;
+  /**
+   * title
+   *
+   * @var string
+   */
+  public $title;
 
-    /**
-     * description
-     *
-     * @var string
-     */
-    public $description;
+  /**
+   * description
+   *
+   * @var string
+   */
+  public $description;
 
-    /**
-     * tags
-     *
-     * @var array
-     */
-    public $tags = array();
+  /**
+   * tags
+   *
+   * @var array
+   */
+  public $tags = array();
 
-    /**
-     * name of the reporter
-     *
-     * @var string
-     */
-    public $reporterName;
-    
-    /**
-     * get reporter
-     * 
-     * @return User
-     */
-    public function getReporter()
-    {
-        //use service to find reporter using $this->reporterName;
-    }
+  /**
+   * name of the reporter
+   *
+   * @var string
+   */
+  public $reporterName;
+
+  /**
+   * get reporter
+   * 
+   * @return User
+   */
+  public function getReporter()
+  {
+    //use service to find reporter using $this->reporterName;
+  }
 }
