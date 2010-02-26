@@ -66,14 +66,14 @@ class TicketService
   }
 
   /**
-   * get tickets by user
+   * get tickets by reporter
    *
    * @param User $user
    * @return array[int]Ticket
    */
-  public function getByUser(User $user)
+  public function getByReporter(User $user)
   {
-    return $this->mapper->getByUser($user);
+    return $this->mapper->getByReporter($user);
   }
 
   /**

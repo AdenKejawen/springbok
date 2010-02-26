@@ -14,11 +14,12 @@ class SpringbokController extends Controller
     $ticket->reporterName = 'naneau';
     $ticket->title = 'springbok ftw';
     $ticket->description = 'Springbok Rules!';
-    $ticketService->save($ticket);
-    var_dump($ticket);
+//    $ticketService->save($ticket);
+//    var_dump($ticket);
 
-    
-    $ticket = $ticketService->getById('4b87dbbb8ead0e932c010000');
+    $user = new \Application\UserBundle\Model\User();
+    $user->username = 'naneau';
+    $ticket = $ticketService->getByReporter($user);
     var_dump($ticket);
 
     return $this->render('SpringbokBundle:Springbok:index');

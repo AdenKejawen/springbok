@@ -7,7 +7,7 @@
 namespace Application\TicketBundle\Model\Ticket;
 
 use \Application\TicketBundle\Model as Model;
-use \Application\UserBundle\Model\User as User;
+use \Application\UserBundle\Model as User;
 
 /**
  * Mapper
@@ -49,7 +49,7 @@ class Mapper
    */
   public function getById($id)
   {
-    $data = $this->collection->findOne(array('_id' => new \MongoId($id)), true);
+    $data = $this->collection->findOne(array('_id' => new \MongoId($id)));
 
     if (empty($data))
     {
@@ -75,8 +75,14 @@ class Mapper
    * @param User $user
    * @return array[int]\Application\TicketBundle\Model\Ticket
    */
-  public function getByUser(User\User $user)
+  public function getByReporter(User\User $user)
   {
+    $cursor = $this->collection->find(array('reporterName' => $user->username));
+    $tickets = array();
+    foreach($cursor as $data) {
+      $tickets[] = $this->fromArray($data);
+    }
+    return $tickets;
   }
 
   /**
