@@ -17,8 +17,9 @@ class SpringbokController extends Controller
     $ticket->tags = array('mongo', 'awesome', 'mirmo', 'naneau');
 
     $ticket->description = 'Springbok Rules!';
-//    $ticketService->save($ticket);
-
+    $ticketService->save($ticket);
+    var_dump($ticketService->getById($ticket->id));
+    
     echo 'awesome tickets';
     var_dump($ticketService->getByTag('awesome'));
 

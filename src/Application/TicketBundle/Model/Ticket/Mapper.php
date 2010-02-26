@@ -8,6 +8,7 @@ namespace Application\TicketBundle\Model\Ticket;
 
 use \Application\TicketBundle\Model as Model;
 use \Application\UserBundle\Model as User;
+use \Application\SpringbokBundle\Model\Inflector as Inflector;
 
 /**
  * Mapper
@@ -144,7 +145,7 @@ class Mapper
         $val = new \MongoID($val);
       }
       //turn id into MongoID
-
+      $key = Inflector::toUnderscore($key);
       $data[$key] = $val;
       //FIXME we need filtering from camelCase to under_score
     }
@@ -168,6 +169,8 @@ class Mapper
         $key = 'id';
         $val = (string) $val;
       }
+      
+      $key = Inflector::toCamelCase($key);
 
       $instance->$key = $val;
     }
