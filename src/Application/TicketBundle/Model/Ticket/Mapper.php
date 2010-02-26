@@ -67,13 +67,9 @@ class Mapper
    */
   public function getByTag($tag)
   {
-    $cursor = $this->collection->find(array('tags' => $tag));
-    $tickets = array();
-    foreach($cursor as $data)
-    {
-      $tickets[] = $this->fromArray($data);
-    }
-    return $tickets;
+    return $this->toArrayFromCursor(
+      $this->collection->find(array('tags' => $tag))
+    );
   }
 
   /**
@@ -84,13 +80,9 @@ class Mapper
    */
   public function getByReporter(User\User $user)
   {
-    $cursor = $this->collection->find(array('reporterName' => $user->username));
-    $tickets = array();
-    foreach($cursor as $data)
-    {
-      $tickets[] = $this->fromArray($data);
-    }
-    return $tickets;
+    return $this->toArrayFromCursor(
+      $this->collection->find(array('reporterName' => $user->username))
+    );
   }
 
   /**
@@ -116,6 +108,22 @@ class Mapper
     }
 
     return $success;
+  }
+  
+  /**
+   * create an array of tickets from a cursor
+   *
+   * @param MongoCursor $cursor
+   * @return array[int]Ticket
+   */
+  protected function toArrayFromCursor(\MongoCursor $cursor)
+  {
+    $tickets = array();
+    foreach($cursor as $data)
+    {
+      $tickets[] = $this->fromArray($data);
+    }
+    return $tickets;
   }
 
   /**
