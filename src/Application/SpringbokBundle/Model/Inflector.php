@@ -29,7 +29,6 @@ class Inflector
     return strtolower(preg_replace('~(?<=\\w)([A-Z])~', '_$1', $string));
   }
 
-
   /**
    * inflect to camelCase
    *
