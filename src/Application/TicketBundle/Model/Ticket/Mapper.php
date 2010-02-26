@@ -19,8 +19,18 @@ use \Application\SpringbokBundle\Model;
  */
 class Mapper
 {
+  /**
+   * Mongo database connection
+   *
+   * @var MongoDB
+   */
   protected $mongo;
 
+  /**
+   * constructor
+   * 
+   * @param MongoDB $mongo
+   */
   public function __construct(MongoDB $mongo)
   {
     $this->mongo = $mongo;
