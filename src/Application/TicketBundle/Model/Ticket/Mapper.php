@@ -67,7 +67,7 @@ class Mapper
    */
   public function getByTag($tag)
   {
-    return $this->toArrayFromCursor(
+    return $this->fromCursor(
       $this->collection->find(array('tags' => $tag))
     );
   }
@@ -80,7 +80,7 @@ class Mapper
    */
   public function getByReporter(User\User $user)
   {
-    return $this->toArrayFromCursor(
+    return $this->fromCursor(
       $this->collection->find(array('reporterName' => $user->username))
     );
   }
@@ -116,7 +116,7 @@ class Mapper
    * @param MongoCursor $cursor
    * @return array[int]Ticket
    */
-  protected function toArrayFromCursor(\MongoCursor $cursor)
+  protected function fromCursor(\MongoCursor $cursor)
   {
     $tickets = array();
     foreach($cursor as $data)
