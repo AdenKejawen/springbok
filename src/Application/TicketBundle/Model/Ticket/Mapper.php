@@ -21,25 +21,11 @@ use \Application\UserBundle\Model\User as User;
 class Mapper
 {
   /**
-   * Mongo database connection
-   *
-   * @var \MongoDB
-   */
-  protected $mongo;
-
-  /**
    * mongo collection to the tickets
    *
    * @var \MongoCollection
    */
   protected $collection;
-
-  /**
-   * mongo auto increment collection
-   * 
-   * @var \MongoCollection
-   */
-  protected $increment;
 
   /**
    * constructor
@@ -53,8 +39,6 @@ class Mapper
     $this->collection = $mongo->tickets;
     //we need constraints, but this will do for now
     //FIXME add constraints
-
-    $this->increment = $mongo->increments;
   }
 
   /**
