@@ -24,7 +24,7 @@ class TicketExtension extends LoaderExtension
 {
 
   protected $resources = array(
-    'services' => 'services.xml'
+    'ticket' => 'ticket.xml'
   );
 
   public function getAlias()
@@ -32,12 +32,12 @@ class TicketExtension extends LoaderExtension
     return 'ticket';
   }
 
-  public function bluhLoad($config)
+  public function ticketLoad($config)
   {
     $configuration = new BuilderConfiguration();
 
     $loader = new XmlFileLoader(__DIR__.'/../Resources/config/');
-    $configuration->merge($loader->load($this->resources['services']));
+    $configuration->merge($loader->load($this->resources['ticket']));
 
     return $configuration;
   }

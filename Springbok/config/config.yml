@@ -8,4 +8,4 @@ web.templating:
   escaping:       htmlspecialchars
   assets_version: SomeVersionScheme
 
-  service.ticket: ~  
+ticket.ticket: ~  

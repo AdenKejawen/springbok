@@ -8,7 +8,7 @@
 
 namespace Application\TicketBundle;
 
-use Application\Ticketbundle\DependencyInjection\TicketExtension;
+use Application\TicketBundle\DependencyInjection\TicketExtension;
 use Symfony\Foundation\Bundle\Bundle as BaseBundle;
 use Symfony\Components\DependencyInjection\ContainerInterface;
 use Symfony\Components\DependencyInjection\Loader\Loader;
