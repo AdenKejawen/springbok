@@ -51,7 +51,8 @@ class Mapper
   {
     $data = $this->collection->findOne(array('_id' => new \MongoId($id)), true);
     
-    if (empty($data)) {
+    if (empty($data))
+    {
       return false;
     }
 
@@ -87,16 +88,17 @@ class Mapper
   public function save(Model\Ticket $ticket)
   {
     $data = $this->toArray($ticket);
-    
-    if (empty($data['id'])) {
+
+    if (empty($data['id']))
+    {
       $success = $success = $this->collection->insert($data);
-      
+
       $ticket->id = (string) $data['_id'];
       //set the id after insert
     } else {
       $success = $this->collection->save($data);
     }
-    
+
     return $success;
   }
 
@@ -112,12 +114,13 @@ class Mapper
 
     foreach(get_object_vars($ticket) as $key => $val)
     {
-      if ($key == 'id') {
+      if ($key == 'id')
+      {
         $key = '_id';
         $val = new \MongoID($val);
       }
       //turn id into MongoID
-      
+
       $data[$key] = $val;
       //FIXME we need filtering from camelCase to under_score
     }
@@ -134,12 +137,14 @@ class Mapper
   protected function fromArray(array $data)
   {
     $instance = new Model\Ticket();
-    foreach($data as $key => $val) {
-      if ($key == '_id') {
+    foreach($data as $key => $val)
+    {
+      if ($key == '_id')
+      {
         $key = 'id';
         $val = (string) $val;
       }
-      
+
       $instance->$key = $val;
     }
     return $instance;
