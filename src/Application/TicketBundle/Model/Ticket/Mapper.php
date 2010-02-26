@@ -50,7 +50,7 @@ class Mapper
   public function getById($id)
   {
     $data = $this->collection->findOne(array('_id' => new \MongoId($id)), true);
-    
+
     if (empty($data))
     {
       return false;
@@ -95,7 +95,9 @@ class Mapper
 
       $ticket->id = (string) $data['_id'];
       //set the id after insert
-    } else {
+    }
+    else
+    {
       $success = $this->collection->save($data);
     }
 
