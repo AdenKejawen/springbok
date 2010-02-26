@@ -1,0 +1,3 @@
+[submodule "src/Bundle/MongoBundle"]
+	path = src/Bundle/MongoBundle
+	url = git://github.com/geoffrey/MongoBundle.git

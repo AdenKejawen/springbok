@@ -48,6 +48,8 @@ class SpringbokKernel extends Kernel
       new Symfony\Framework\DoctrineBundle\Bundle(),
       new Symfony\Framework\SwiftmailerBundle\Bundle(),
 
+      new Bundle\MongoBundle\Bundle(),
+
       // register your bundles here
       new Application\TicketBundle\Bundle(),
       new Application\SpringbokBundle\Bundle(),

@@ -9,3 +9,5 @@ web.templating:
   assets_version: SomeVersionScheme
 
 ticket.ticket: ~  
+
+mongo.mongo: ~
