@@ -67,6 +67,13 @@ class Mapper
    */
   public function getByTag($tag)
   {
+    $cursor = $this->collection->find(array('tags' => $tag));
+    $tickets = array();
+    foreach($cursor as $data)
+    {
+      $tickets[] = $this->fromArray($data);
+    }
+    return $tickets;
   }
 
   /**
@@ -79,7 +86,8 @@ class Mapper
   {
     $cursor = $this->collection->find(array('reporterName' => $user->username));
     $tickets = array();
-    foreach($cursor as $data) {
+    foreach($cursor as $data)
+    {
       $tickets[] = $this->fromArray($data);
     }
     return $tickets;
