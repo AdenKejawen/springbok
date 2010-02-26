@@ -46,7 +46,7 @@ class TicketService
   /**
    * get Ticket by id
    *
-   * @param int $id
+   * @param string $id
    * @return Ticket
    */
   public function getById($id)

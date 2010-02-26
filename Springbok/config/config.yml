@@ -10,4 +10,5 @@ web.templating:
 
 ticket.ticket: ~  
 
-mongo.mongo: ~
+mongo.mongo: 
+  dbname: springbok

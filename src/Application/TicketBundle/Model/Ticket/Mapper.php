@@ -45,11 +45,17 @@ class Mapper
    * get Ticket by id
    *
    * @param int $id
-   * @return \Application\TicketBundle\Model\Ticket
+   * @return \Application\TicketBundle\Model\Ticket|bool
    */
   public function getById($id)
   {
-    return $this->collection->findOne(array('_id' => new MongoId($id)), true);
+    $data = $this->collection->findOne(array('_id' => new \MongoId($id)), true);
+    
+    if (empty($data)) {
+      return false;
+    }
+
+    return $this->fromArray($data);
   }
 
   /**
@@ -106,6 +112,12 @@ class Mapper
 
     foreach(get_object_vars($ticket) as $key => $val)
     {
+      if ($key == 'id') {
+        $key = '_id';
+        $val = new \MongoID($val);
+      }
+      //turn id into MongoID
+      
       $data[$key] = $val;
       //FIXME we need filtering from camelCase to under_score
     }
@@ -121,6 +133,15 @@ class Mapper
    */
   protected function fromArray(array $data)
   {
-
+    $instance = new Model\Ticket();
+    foreach($data as $key => $val) {
+      if ($key == '_id') {
+        $key = 'id';
+        $val = (string) $val;
+      }
+      
+      $instance->$key = $val;
+    }
+    return $instance;
   }
 }

@@ -15,7 +15,11 @@ class SpringbokController extends Controller
     $ticket->title = 'springbok ftw';
     $ticket->description = 'Springbok Rules!';
     $ticketService->save($ticket);
-//    $ticketService->getById(1);
+    var_dump($ticket);
+
+    
+    $ticket = $ticketService->getById('4b87dbbb8ead0e932c010000');
+    var_dump($ticket);
 
     return $this->render('SpringbokBundle:Springbok:index');
   }
