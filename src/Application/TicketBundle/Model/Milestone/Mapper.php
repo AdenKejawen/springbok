@@ -23,14 +23,37 @@ use Application\TicketBundle\Model\Ticket\Mapper as TicketMapper;
  */
 class Mapper extends MongoMapper
 {
+  /**
+   * @return \MongoCollection
+   */
   public function getCollection()
   {
     return $this->mongo->milestones;
   }
 
+  /**
+   * Converts an array to a Milestone object
+   *
+   * @return \Application\TicketBundle\Model\Milestone
+   */
   static public function fromArray(array $array)
   {
     $milestone          = self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Milestone');
     $milestone->tickets = TicketMapper::collectionToObjects($milestone->tickets);
+
+    return $milestone;
+  }
+
+  /**
+   * Converts a Milestone object into an array
+   *
+   * @return array
+   */
+  static public function toArray(Milestone $milestone)
+  {
+    $array            = self::objectToArray($milestone);
+    $array['tickets'] = TicketMapper::collectionToArrays($array['tickets']);
+
+    return $array;
   }
 }
