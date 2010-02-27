@@ -51,7 +51,7 @@ class Mapper extends MongoMapper
    */
   static public function fromArray(array $array)
   {
-    $milestone          = self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Milestone');
+    $milestone          = self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Milestone');
     $milestone->tickets = TicketMapper::collectionToObjects($milestone->tickets);
 
     return $milestone;

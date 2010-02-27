@@ -34,7 +34,7 @@ class Mapper extends MongoMapper
    */
   static public function fromArray(array $array)
   {
-    return self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Ticket');
+    return self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Ticket');
   }
 
   /**
