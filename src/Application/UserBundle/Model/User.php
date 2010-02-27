@@ -33,16 +33,27 @@ class User extends \Application\SpringbokBundle\Model\DomainObject
   public $username;
 
   /**
-   * full name
-   * 
-   * @var string
-   */
-  public $fullName;
-
-  /**
-   * biography
+   * email
    *
    * @var string
    */
-  public $bio;
+  public $email;
+
+  /**
+   * roles
+   *
+   * @var array
+   */
+  public $roles = array();
+
+  /**
+   * Tells whether a user as a given role
+   *
+   * @param string $role
+   * @return boolean
+   */
+  public function hasRole($role)
+  {
+    return in_array($role, $this->roles);
+  }
 }
