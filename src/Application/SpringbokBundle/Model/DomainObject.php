@@ -25,7 +25,14 @@ class DomainObject
      */
     public function __get($what)
     {
-        //check if getWhat() exists then use that, as a kind of property
+      $funcName = 'get' . ucfirst($what);
+      //check if getWhat() exists then use that, as a kind of poor man's property
+
+      if (!method_exists($this, $funcName)) {
+        throw new Excepton('Property ' . $what . ' not found in object of class ' . get_class($this));
+      }
+
+      return $this->$funcName();
     }
 
     /**
@@ -36,7 +43,12 @@ class DomainObject
      */
     public function __set($what, $value)
     {
-        //set stuff using setWhat(), see __get()
-        //most props will be read-only though
+      $funcName = 'set' . ucfirst($what);
+
+      if (!method_exists($this, $funcName)) {
+        //do we still set it? :x
+      }
+
+      $this->$funcName($value);
     }
 }
