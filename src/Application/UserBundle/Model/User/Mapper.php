@@ -9,6 +9,9 @@
 
 namespace Application\UserBundle\Model\User;
 
+use Application\SpringbokBundle\Model\Mapper\MongoMapper;
+use Application\UserBundle\User;
+
 /**
  * Mapper
  *
@@ -16,21 +19,39 @@ namespace Application\UserBundle\Model\User;
  * @package         UserBundle
  * @subpackage      Model
  */
-class Mapper
+class Mapper extends MongoMapper
 {
+  /**
+   * @return \MongoCollection
+   */
+  public function getCollection()
+  {
+    return $this->mongo->users;
+  }
+
+  /**
+   * @return \Application\UserBundle\Model\User
+   */
+  static public function fromArray(array $array)
+  {
+    return self::arrayToObject($array);
+  }
+
+  /**
+   * @return array
+   */
+  static public function toArray(User $user)
+  {
+    return self::objectToArray($user);
+  }
 
   /**
    * get a user by username
    *
    * @param string $username
    */
-  public function getByUserName($username) {}
-
-  /**
-   * get a user by id
-   *
-   * @param int $id
-   */
-  public function getById($id) {}
-
+  public function getByUserName($username)
+  {
+    return $this->getCollection()->
+  }
 }
