@@ -30,24 +30,6 @@ class Mapper extends MongoMapper
   }
 
   /**
-   * @return \Application\TicketBundle\Model\Ticket
-   */
-  static public function fromArray(array $array)
-  {
-    return self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Ticket');
-  }
-
-  /**
-   * translate Ticket into array representaiton
-   *
-   * @return array
-   */
-  static public function toArray(Ticket $ticket)
-  {
-    return self::objectToArray($ticket);
-  }
-
-  /**
    * get Tickets by tag(s)
    *
    * @param string|array $tag
@@ -71,5 +53,23 @@ class Mapper extends MongoMapper
     return static::fromCursor(
       $this->collection->find(array('reporter_name' => $user->username))
     );
+  }
+
+  /**
+   * @return \Application\TicketBundle\Model\Ticket
+   */
+  static public function fromArray(array $array)
+  {
+    return self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Ticket');
+  }
+
+  /**
+   * translate Ticket into array representaiton
+   *
+   * @return array
+   */
+  static public function toArray(Ticket $ticket)
+  {
+    return self::objectToArray($ticket);
   }
 }
