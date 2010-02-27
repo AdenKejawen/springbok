@@ -60,6 +60,16 @@ class MilestoneService
   }
 
   /**
+   * save a milestone
+   *
+   * @return bool
+   */
+  public function save(Milestone $milestone)
+  {
+    return $this->mapper->save($milestone);
+  }
+
+  /**
    * get mapper
    *
    * 
