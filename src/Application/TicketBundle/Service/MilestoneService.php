@@ -56,6 +56,7 @@ class MilestoneService
    */
   public function getById($id)
   {
+    return $this->mapper->getById($id);
   }
 
   /**

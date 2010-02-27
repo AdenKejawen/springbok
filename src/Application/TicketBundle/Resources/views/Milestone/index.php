@@ -14,7 +14,9 @@ $view->extend('SpringbokBundle::layout');
 <ul>
   <?php foreach($milestones as $milestone ) : ?>
   <li>
-    <?php echo $milestone->name; ?>
+    <a href="<?php echo $view->router->generate('tickets_per_milestone', array('milestone' => $milestone->id)) ?>">
+      <?php echo $milestone->name; ?>
+    </a>
   </li>
   <?php endforeach ?>
 </ul>
