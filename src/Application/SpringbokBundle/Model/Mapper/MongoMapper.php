@@ -66,7 +66,7 @@ abstract class MongoMapper implements MapperInterface
    */
   public function save($object)
   {
-    $data = static::toArray($object);
+    $data = static::objectToArray($object);
 
     if (empty($data['id']))
     {
@@ -105,7 +105,7 @@ abstract class MongoMapper implements MapperInterface
    * @param object $object
    * @return array
    */
-  static public function toArray($object)
+  static public function objectToArray($object)
   {
     $data = array();
 
