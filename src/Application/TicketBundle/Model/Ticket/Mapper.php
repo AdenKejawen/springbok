@@ -6,6 +6,7 @@
 
 namespace Application\TicketBundle\Model\Ticket;
 
+use Application\TicketBundle\Model\Ticket;
 use Application\UserBundle\Model\User;
 use Application\SpringbokBundle\Model\Mapper\MongoMapper;
 
@@ -37,6 +38,15 @@ class Mapper extends MongoMapper
   }
 
   /**
+   * @return array
+   */
+
+  static public function toArray(Ticket $ticket)
+  {
+    return self::objectToArray($ticket);
+  }
+
+  /**
    * get Tickets by tag(s)
    *
    * @param string|array $tag
@@ -44,7 +54,7 @@ class Mapper extends MongoMapper
    */
   public function getByTag($tag)
   {
-    return $this->fromCursor(
+    return static::fromCursor(
       $this->getCollection()->find(array('tags' => $tag))
     );
   }
@@ -57,7 +67,7 @@ class Mapper extends MongoMapper
    */
   public function getByReporter(User $user)
   {
-    return $this->fromCursor(
+    return static::fromCursor(
       $this->collection->find(array('reporterName' => $user->username))
     );
   }
