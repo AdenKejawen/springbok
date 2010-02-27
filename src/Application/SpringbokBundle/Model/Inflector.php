@@ -37,9 +37,10 @@ class Inflector
    */
   public static function toCamelCase($string)
   {
-    $string = str_replace(" ", "", ucwords(strtr($string, "_-", "  ")));
-    $string[0] = strtolower($string[0]);
-    return $string;
+    $replacer = function($matches)
+    {
+      return $matches[0].strtoupper($matches[1]);
+    }
+    return preg_replace_callback('([a-z])_([a-z])', $replacer, strtolower($string));
   }
-  
 }
