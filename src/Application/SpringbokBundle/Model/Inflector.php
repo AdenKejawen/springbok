@@ -39,8 +39,8 @@ class Inflector
   {
     $replacer = function($matches)
     {
-      return $matches[0].strtoupper($matches[1]);
-    }
-    return preg_replace_callback('([a-z])_([a-z])', $replacer, strtolower($string));
+      return $matches[1].strtoupper($matches[2]);
+    };
+    return preg_replace_callback('/([a-z])_([a-z])/', $replacer, strtolower($string));
   }
 }
