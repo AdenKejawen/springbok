@@ -4,10 +4,10 @@
            xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
 
   <services>
-    <service id="milestone.mapper" class="Application\TicketBundle\Model\Milestone\Mapper">
+    <service id="user.mapper" class="Application\UserBundle\Model\User\Mapper">
       <argument type="service" id="mongo.database" />
     </service>
-    <service id="ticket" class="Application\TicketBundle\Service\MilestoneService">
+    <service id="user" class="Application\UserBundle\Service\UserService">
       <argument type="service" id="milestone.mapper" />
     </service>
   </services>
