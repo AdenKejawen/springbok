@@ -9,6 +9,7 @@ web.templating:
   assets_version: SomeVersionScheme
 
 ticket.ticket: ~  
+ticket.milestone: ~
 
 mongo.mongo: 
   dbname: springbok

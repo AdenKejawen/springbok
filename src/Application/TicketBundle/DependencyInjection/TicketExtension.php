@@ -22,9 +22,9 @@ use Symfony\Components\DependencyInjection\BuilderConfiguration;
  */
 class TicketExtension extends LoaderExtension
 {
-
   protected $resources = array(
-    'ticket' => 'ticket.xml'
+    'ticket'    => 'ticket.xml',
+    'milestone' => 'milestone.xml',
   );
 
   public function getAlias()
@@ -38,6 +38,16 @@ class TicketExtension extends LoaderExtension
 
     $loader = new XmlFileLoader(__DIR__.'/../Resources/config/');
     $configuration->merge($loader->load($this->resources['ticket']));
+
+    return $configuration;
+  }
+
+  public function milestoneLoad($config)
+  {
+    $configuration = new BuilderConfiguration();
+
+    $loader = new XmlFileLoader(__DIR__.'/../Resources/config/');
+    $configuration->merge($loader->load($this->resources['milestone']));
 
     return $configuration;
   }
