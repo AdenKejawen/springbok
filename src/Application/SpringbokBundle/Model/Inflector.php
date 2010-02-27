@@ -41,6 +41,7 @@ class Inflector
     {
       return $matches[1].strtoupper($matches[2]);
     };
+    //oooh pretty lambda!
     return preg_replace_callback('/([a-z])_([a-z])/', $replacer, strtolower($string));
   }
 }
