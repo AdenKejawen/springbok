@@ -4,11 +4,9 @@ namespace Application\SpringbokBundle\Model;
 
 interface MapperInterface
 {
-  public function toArray($object);
+  static public function toArray($object);
 
-  public function fromArray(array $array);
-
-  public function fromCursor(\MongoCursor $cursor);
+  static public function arrayToObject(array $array, $className);
 
   public function save($object);
 }

@@ -29,9 +29,17 @@ class Mapper extends MongoMapper
   }
 
   /**
+   * @return \Application\TicketBundle\Model\Ticket
+   */
+  static public function fromArray(array $array)
+  {
+    return self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Ticket');
+  }
+
+  /**
    * @return string
    */
-  public function getClassName()
+  static public function getClassName()
   {
     return 'Application\\TicketBundle\\Model\\Ticket';
   }

@@ -30,13 +30,6 @@ abstract class MongoMapper implements MapperInterface
   abstract public function getCollection();
 
   /**
-   * Returns the Fully Qualified Class Name of the object
-   *
-   * @return string
-   */
-  abstract public function getClassName();
-
-  /**
    * Constructor
    *
    * @param \MongoDB $mongo
@@ -61,7 +54,7 @@ abstract class MongoMapper implements MapperInterface
       return false;
     }
 
-    return $this->fromArray($data);
+    return static::fromArray($data);
   }
 
 
@@ -73,7 +66,7 @@ abstract class MongoMapper implements MapperInterface
    */
   public function save($object)
   {
-    $data = $this->toArray($object);
+    $data = static::toArray($object);
 
     if (empty($data['id']))
     {
@@ -96,12 +89,12 @@ abstract class MongoMapper implements MapperInterface
    * @param MongoCursor $cursor
    * @return array[int]Ticket
    */
-  public function fromCursor(\MongoCursor $cursor)
+  static public function fromCursor(\MongoCursor $cursor)
   {
     $objects = array();
     foreach($cursor as $data)
     {
-      $objects[] = $this->fromArray($data);
+      $objects[] = static::fromArray($data);
     }
     return $objects;
   }
@@ -112,7 +105,7 @@ abstract class MongoMapper implements MapperInterface
    * @param object $object
    * @return array
    */
-  public function toArray($object)
+  static public function toArray($object)
   {
     $data = array();
 
@@ -138,10 +131,9 @@ abstract class MongoMapper implements MapperInterface
    * @param array $data
    * @return object
    */
-  public function fromArray(array $array)
+  static public function arrayToObject(array $array, $className)
   {
-    $className = $this->getClassName();
-    $instance  = new $className();
+    $object  = new $className();
 
     foreach($array as $key => $val)
     {
@@ -153,8 +145,8 @@ abstract class MongoMapper implements MapperInterface
       
       $key = Inflector::toCamelCase($key);
 
-      $instance->$key = $val;
+      $object->$key = $val;
     }
-    return $instance;
+    return $object;
   }
 }
