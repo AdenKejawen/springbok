@@ -4,7 +4,7 @@ namespace Application\SpringbokBundle\Model;
 
 interface MapperInterface
 {
-  static public function toArray($object);
+  static public function objectToArray($object);
 
   static public function arrayToObject(array $array, $className);
 
