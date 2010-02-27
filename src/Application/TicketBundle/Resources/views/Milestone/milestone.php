@@ -5,14 +5,14 @@
  */
 
 ?>
-<h2><?echo $milestone->name; ?></h2>
+<h2><?php echo $milestone->name; ?></h2>
 <?php echo $milestone->description; ?>
 
 <h3>Tickets</h3>
 <ul>
   <?php foreach($milestone->tickets as $ticket) : ?>
   <li>
-    <?echo $ticket->title; ?>
+    <?php echo $ticket->title; ?>
   </li>
   <?php endforeach; ?>
 </ul>
