@@ -7,9 +7,7 @@
  * @subpackage      Model
  */
 
-namespace Application\SpringbokBundle\Model;
-
-use Application\SpringbokBundle\Model;
+namespace Application\TicketBundle\Model;
 
 /**
  * Milestone
@@ -18,7 +16,7 @@ use Application\SpringbokBundle\Model;
  * @package         SpringbokBundle
  * @subpackage      Model
  */
-class Milestone extends DomainObject
+class Milestone
 {
   /**
    * name for the milestone

@@ -11,6 +11,7 @@ namespace Application\TicketBundle\Model\Milestone;
 
 use Application\SpringbokBundle\Model\Mapper\MongoMapper;
 use Application\TicketBundle\Model\Ticket\Mapper as TicketMapper;
+use Application\TicketBundle\Model\Milestone;
 
 /**
  * Mapper
