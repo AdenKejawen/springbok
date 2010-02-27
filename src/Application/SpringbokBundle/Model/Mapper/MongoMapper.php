@@ -165,4 +165,20 @@ abstract class MongoMapper implements MapperInterface
 
     return $collection;
   }
+
+  /**
+   * Parses an array of arrays to an array of instances
+   *
+   * @param array
+   * @return array
+   */
+  static public function collectionToArrays($collection)
+  {
+    foreach($collection as $i => $object)
+    {
+      $collection[$i] = static::toArray($object);
+    }
+
+    return $collection;
+  }
 }
