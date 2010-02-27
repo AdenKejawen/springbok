@@ -30,21 +30,6 @@ class TicketController extends Controller
   }
 
   /**
-   * display all tickets for a milestone
-   *
-   * @return Response
-   */
-  public function milestoneAction()
-  {
-    $id = $this->getRequest()->getParameter('milestone');
-    
-    $milestone = $this->getMilestoneService()->getById($id);
-    return $this->render('TicketBundle:Ticket:milestone', array(
-      'milestone' => $milestone
-     ));
-  }
-
-  /**
    * get ticket service
    *
    * @return TicketService

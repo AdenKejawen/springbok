@@ -42,4 +42,19 @@ class MilestoneController extends Controller
     //all milestones
     return $this->render('TicketBundle:Milestone:index', array('milestones' => $milestones));
   }
+
+  /**
+   * display a milestone
+   *
+   * @return Response
+   */
+  public function milestoneAction()
+  {
+    $id = $this->getRequest()->getParameter('milestone');
+
+    $milestone = $this->getService()->getById($id);
+    return $this->render('TicketBundle:Milestone:milestone', array(
+      'milestone' => $milestone
+     ));
+  }
 }

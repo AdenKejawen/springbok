@@ -4,4 +4,4 @@ milestone_index:
 
 tickets_per_milestone:
   pattern: milestone/:milestone/tickets
-  defaults: { _bundle: TicketBundle, _controller: Ticket, _action: milestone }
+  defaults: { _bundle: TicketBundle, _controller: Milestone, _action: milestone }
