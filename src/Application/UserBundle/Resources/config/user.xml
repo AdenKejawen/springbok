@@ -8,7 +8,7 @@
       <argument type="service" id="mongo.database" />
     </service>
     <service id="user" class="Application\UserBundle\Service\UserService">
-      <argument type="service" id="milestone.mapper" />
+      <argument type="service" id="user.mapper" />
     </service>
   </services>
 </container>

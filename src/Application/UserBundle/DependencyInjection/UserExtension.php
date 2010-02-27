@@ -20,7 +20,7 @@ use Symfony\Components\DependencyInjection\BuilderConfiguration;
  * @package         
  * @subpackage      
  */
-class TicketExtension extends LoaderExtension
+class UserExtension extends LoaderExtension
 {
   protected $resources = array(
     'user' => 'user.xml',
@@ -36,7 +36,7 @@ class TicketExtension extends LoaderExtension
     $configuration = new BuilderConfiguration();
 
     $loader = new XmlFileLoader(__DIR__.'/../Resources/config/');
-    $configuration->merge($loader->load($this->resources['ticket']));
+    $configuration->merge($loader->load($this->resources['user']));
 
     return $configuration;
   }

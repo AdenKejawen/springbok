@@ -50,8 +50,8 @@ class Mapper extends MongoMapper
    *
    * @param string $username
    */
-  public function getByUserName($username)
+  public function getByUsername($username)
   {
-    return $this->getCollection()->
+    return $this->getCollection()->findOne(array('username' => $username));
   }
 }

@@ -1,0 +1,3 @@
+homepage:
+  pattern: /users
+  defaults: { _bundle: UserBundle, _controller: User, _action: index }

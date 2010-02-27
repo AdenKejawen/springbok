@@ -11,5 +11,7 @@ web.templating:
 ticket.ticket: ~  
 ticket.milestone: ~
 
+user.user: ~
+
 mongo.mongo: 
   dbname: springbok
