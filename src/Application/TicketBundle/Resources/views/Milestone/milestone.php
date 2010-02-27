@@ -14,5 +14,5 @@
   <li>
     <?echo $ticket->title; ?>
   </li>
-  <? endforeach; ?>
+  <?php endforeach; ?>
 </ul>
