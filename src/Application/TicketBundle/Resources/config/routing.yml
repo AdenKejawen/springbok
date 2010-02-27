@@ -1,0 +1,3 @@
+milestone_index:
+  pattern: /milestones
+  defaults: { _bundle: TicketBundle, _controller: Milestone, _action: index }

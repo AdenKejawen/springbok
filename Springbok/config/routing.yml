@@ -1,2 +1,5 @@
 springbok:
   resource: SpringbokBundle/Resources/config/routing.yml
+
+ticket:
+  resource: TicketBundle/Resources/config/routing.yml
