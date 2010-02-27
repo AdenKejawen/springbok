@@ -7,7 +7,7 @@
     <service id="milestone.mapper" class="Application\TicketBundle\Model\Milestone\Mapper">
       <argument type="service" id="mongo.database" />
     </service>
-    <service id="ticket" class="Application\TicketBundle\Service\MilestoneService">
+    <service id="milestone" class="Application\TicketBundle\Service\MilestoneService">
       <argument type="service" id="milestone.mapper" />
     </service>
   </services>

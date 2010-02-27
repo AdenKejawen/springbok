@@ -3,3 +3,6 @@ springbok:
 
 user:
   resource: UserBundle/Resources/config/routing.yml
+
+ticket:
+  resource: TicketBundle/Resources/config/routing.yml

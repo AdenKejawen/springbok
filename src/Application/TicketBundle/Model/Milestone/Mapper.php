@@ -33,13 +33,25 @@ class Mapper extends MongoMapper
   }
 
   /**
+   * get all milestones
+   *
+   * @return array[int]Milestone
+   */
+  public function getAll()
+  {
+    return static::fromCursor(
+      $this->getCollection()->find()
+    );
+  }
+
+  /**
    * Converts an array to a Milestone object
    *
    * @return \Application\TicketBundle\Model\Milestone
    */
   static public function fromArray(array $array)
   {
-    $milestone          = self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Milestone');
+    $milestone          = self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Milestone');
     $milestone->tickets = TicketMapper::collectionToObjects($milestone->tickets);
 
     return $milestone;

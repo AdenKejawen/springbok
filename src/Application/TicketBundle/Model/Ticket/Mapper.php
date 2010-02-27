@@ -34,13 +34,14 @@ class Mapper extends MongoMapper
    */
   static public function fromArray(array $array)
   {
-    return self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Ticket');
+    return self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Ticket');
   }
 
   /**
+   * translate Ticket into array representaiton
+   *
    * @return array
    */
-
   static public function toArray(Ticket $ticket)
   {
     return self::objectToArray($ticket);
@@ -68,7 +69,7 @@ class Mapper extends MongoMapper
   public function getByReporter(User $user)
   {
     return static::fromCursor(
-      $this->collection->find(array('reporterName' => $user->username))
+      $this->collection->find(array('reporter_name' => $user->username))
     );
   }
 }

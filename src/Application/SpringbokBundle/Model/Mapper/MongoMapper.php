@@ -20,10 +20,17 @@ use Application\SpringbokBundle\Model\Inflector;
  */
 abstract class MongoMapper implements MapperInterface
 {
+  /**
+   * Mongo instance
+   * 
+   * @var MongoDB
+   */
   protected $mongo;
 
   /**
    * Returns the MongoCollection used to manage objects
+   *
+   * This function should also set relevant constraints on the collection
    *
    * @return \MongoCollection
    */
