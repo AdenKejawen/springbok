@@ -10,24 +10,26 @@ class SpringbokController extends Controller
   {
     $ticketService = $this->container->getService('ticket.mapper');
     
-    $ticket = new \Application\TicketBundle\Model\Ticket();
+    $ticket               = new \Application\TicketBundle\Model\Ticket();
     $ticket->reporterName = 'naneau';
-    $ticket->title = 'springbok ftw';
-    
-    $ticket->tags = array('mongo', 'awesome', 'mirmo', 'naneau');
+    $ticket->title        = 'springbok ftw';
+    $ticket->tags         = array('mongo', 'awesome', 'mirmo', 'naneau');
+    $ticket->description  = 'Springbok Rules!';
 
-    $ticket->description = 'Springbok Rules!';
     $ticketService->save($ticket);
-    var_dump($ticketService->getById($ticket->id));
-    
-    echo 'awesome tickets';
-    var_dump($ticketService->getByTag('awesome'));
 
-    echo 'Naneau\'s tickets';
-    $user = new \Application\UserBundle\Model\User();
-    $user->username = 'naneau';
-    $tickets = $ticketService->getByReporter($user);
-    var_dump($tickets);
+    $milestoneService = $this->container->getService('milestone.mapper');
+
+    $milestone = new \Application\TicketBundle\Model\Milestone();
+    $milestone->name = 'awesome milestone';
+    $milestone->description = 'this is an awesome milestone, as the name says it all';
+    $milestone->tickets[] = $ticket;
+
+    $milestoneService->save($milestone);
+
+    var_dump(\Application\TicketBundle\Model\Milestone\Mapper::toArray($milestone));
+
+    var_dump($milestone);
 
     return $this->render('SpringbokBundle:Springbok:index');
   }
