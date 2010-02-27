@@ -39,7 +39,7 @@ class MilestoneController extends Controller
   public function indexAction()
   {
     $milestones = $this->getService()->getAll();
-    var_dump($milestones);
+    //all milestones
     return $this->render('TicketBundle:Milestone:index', array('milestones' => $milestones));
   }
 }
