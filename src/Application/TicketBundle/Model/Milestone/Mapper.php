@@ -9,7 +9,8 @@
 
 namespace Application\TicketBundle\Model\Milestone;
 
-use Application\TicketBundle\Model;
+use Application\SpringbokBundle\Model\Mapper\MongoMapper;
+use Application\TicketBundle\Model\Ticket\Mapper as TicketMapper;
 
 /**
  * Mapper
@@ -20,15 +21,16 @@ use Application\TicketBundle\Model;
  * @package         TicketBundle
  * @subpackage      Model
  */
-class Mapper extends Mapper
+class Mapper extends MongoMapper
 {
-  /**
-   * get Milestone by id
-   * 
-   * @param int $id 
-   * @return \Application\TicketBundle\Model\Milestone
-   */
-  public function getById($id)
+  public function getCollection()
   {
+    return $this->mongo->milestones;
+  }
+
+  static public function fromArray(array $array)
+  {
+    $milestone          = self::arrayToObject($array, '\\Application\\TicketBundle\\Model\\Milestone');
+    $milestone->tickets = TicketMapper::collectionToObjects($milestone->tickets);
   }
 }

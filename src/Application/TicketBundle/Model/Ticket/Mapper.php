@@ -37,14 +37,6 @@ class Mapper extends MongoMapper
   }
 
   /**
-   * @return string
-   */
-  static public function getClassName()
-  {
-    return 'Application\\TicketBundle\\Model\\Ticket';
-  }
-
-  /**
    * get Tickets by tag(s)
    *
    * @param string|array $tag
