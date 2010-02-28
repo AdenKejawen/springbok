@@ -13,8 +13,6 @@ class GuardController extends Controller
     {
       $user = $this->container->getService('model.user')->getByUsername($this->getRequest()->getParameter('username'));
 
-      var_dump($user);
-
       if ($user && $user->password == $this->getRequest()->getParameter('password'))
       {
         $this->getUser()->login($user);
