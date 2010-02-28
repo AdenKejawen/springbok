@@ -30,6 +30,17 @@ class TicketController extends Controller
   }
 
   /**
+   * read a single ticket
+   * 
+   * @param string $ticketId
+   */
+  public function readAction($ticket)
+  {
+    $ticket = $this->getTicketService()->getById($ticket);
+    return $this->render('TicketBundle:Ticket:read', array('ticket' => $ticket));
+  }
+
+  /**
    * see a queue of tickets the current user is assigned to
    * 
    * @return Response
@@ -44,6 +55,7 @@ class TicketController extends Controller
     
     return $this->render('TicketBundle:Ticket:queue', array('queue' => $queue));
   }
+
 
   /**
    * get ticket service
