@@ -67,12 +67,7 @@ class MilestoneService
     $milestone = $this->mapper->getById($id);
 //var_dump($milestone);
 
-    $ticketIds = array();
-    foreach($milestone->tickets as $ticketRef)
-    {
-      $ticketIds[] = $ticketRef['$id'];
-    }
-    $milestone->tickets = $this->ticketMapper->getByIds($ticketIds);
+    $milestone->tickets = $this->ticketMapper->getByIds($milestone->tickets);
     
     return $milestone;
 
@@ -87,7 +82,6 @@ class MilestoneService
   {
     foreach($milestone->tickets as $ticket)
     {
-      var_dump($ticket);
       $this->ticketMapper->save($ticket);
     }
     
