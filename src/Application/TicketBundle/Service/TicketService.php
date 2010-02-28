@@ -8,7 +8,9 @@
  */
 
 namespace Application\TicketBundle\Service;
+
 use Application\TicketBundle\Model\Ticket;
+use Application\TicketBundle\Model\Ticket\Mapper;
 use Application\UserBundle\Model\User;
 
 /**
@@ -39,7 +41,7 @@ class TicketService
    *
    * @param Mapper $mapper
    */
-  public function __construct(\Application\TicketBundle\Model\Ticket\Mapper $mapper)
+  public function __construct(Mapper $mapper)
   {
     $this->mapper = $mapper;
   }
