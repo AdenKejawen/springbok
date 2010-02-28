@@ -68,7 +68,8 @@ class MilestoneService
   {
     $milestone = $this->mapper->getById($id);
 
-    if ($getTickets) {
+    if ($getTickets)
+    {
       $milestone->tickets = $this->ticketMapper->getByIds($milestone->tickets);
     }
     return $milestone;
