@@ -1,7 +1,15 @@
+ticket_read:
+  pattern: ticket/:id
+  defaults: { _bundle: TicketBundle, _controller: Ticket, _action: read }
+
+queue:
+  pattern: queue
+  defaults: { _bundle: TicketBundle, _controller: Ticket, _action: queue }
+
 milestone_index:
   pattern: /milestones
   defaults: { _bundle: TicketBundle, _controller: Milestone, _action: index }
 
-tickets_per_milestone:
-  pattern: milestone/:milestone/tickets
-  defaults: { _bundle: TicketBundle, _controller: Milestone, _action: milestone }
+milestone_read:
+  pattern: milestone/:id
+  defaults: { _bundle: TicketBundle, _controller: Milestone, _action: read }

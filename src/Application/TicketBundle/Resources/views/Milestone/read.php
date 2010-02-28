@@ -1,9 +1,11 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * read.php
+ *
+ * @category        Springbok
+ * @package         TicketBundle
+ * @subpackage      View
  */
-
 ?>
 
 <a href="<?php echo $view->router->generate('milestone_index') ?>">

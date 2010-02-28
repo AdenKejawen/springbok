@@ -30,6 +30,34 @@ class TicketController extends Controller
   }
 
   /**
+   * read a single ticket
+   * 
+   * @param string $ticketId
+   */
+  public function readAction($id)
+  {
+    $ticket = $this->getTicketService()->getById($id);
+    return $this->render('TicketBundle:Ticket:read', array('ticket' => $ticket));
+  }
+
+  /**
+   * see a queue of tickets the current user is assigned to
+   * 
+   * @return Response
+   */
+  public function queueAction()
+  {
+    $userName = 'naneau';
+    //needs to come from user service (currently logged in user)
+
+    $user = $this->container->getService('user')->getByUsername($userName);
+    $queue = $this->getTicketService()->getbyAssignee($user);
+    
+    return $this->render('TicketBundle:Ticket:queue', array('queue' => $queue));
+  }
+
+
+  /**
    * get ticket service
    *
    * @return TicketService
