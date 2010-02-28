@@ -60,15 +60,16 @@ class MilestoneService
    * get milestone by id
    *
    * @param int $id
+   * @param bool $getTickets
    * @return Milestone
    */
-  public function getById($id)
+  public function getById($id, $getTickets = true)
   {
     $milestone = $this->mapper->getById($id);
-//var_dump($milestone);
 
-    $milestone->tickets = $this->ticketMapper->getByIds($milestone->tickets);
-    
+    if ($getTickets) {
+      $milestone->tickets = $this->ticketMapper->getByIds($milestone->tickets);
+    }
     return $milestone;
 
   }
