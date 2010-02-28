@@ -11,6 +11,7 @@ namespace Application\TicketBundle\Service;
 
 use Application\TicketBundle\Model\Milestone;
 use Application\TicketBundle\Model\Milestone\Mapper;
+use Application\TicketBundle\Model\Ticket\Mapper as TicketMapper;
 
 /**
  * MilestoneService
@@ -38,6 +39,13 @@ class MilestoneService
     $this->mapper = $mapper;
   }
 
+  protected $ticketMapper;
+  public function setTicketMapper(TicketMapper $mapper)
+  {
+    $this->ticketMapper = $mapper;
+  }
+
+
   /**
    * get all milestones
    * 
@@ -56,7 +64,18 @@ class MilestoneService
    */
   public function getById($id)
   {
-    return $this->mapper->getById($id);
+    $milestone = $this->mapper->getById($id);
+//var_dump($milestone);
+
+    $ticketIds = array();
+    foreach($milestone->tickets as $ticketRef)
+    {
+      $ticketIds[] = $ticketRef['$id'];
+    }
+    $milestone->tickets = $this->ticketMapper->getByIds($ticketIds);
+    
+    return $milestone;
+
   }
 
   /**
@@ -66,6 +85,12 @@ class MilestoneService
    */
   public function save(Milestone $milestone)
   {
+    foreach($milestone->tickets as $ticket)
+    {
+      var_dump($ticket);
+      $this->ticketMapper->save($ticket);
+    }
+    
     return $this->mapper->save($milestone);
   }
 

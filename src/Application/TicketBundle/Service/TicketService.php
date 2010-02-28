@@ -8,7 +8,8 @@
  */
 
 namespace Application\TicketBundle\Service;
-use \Application\TicketBundle\Model\Ticket;
+use Application\TicketBundle\Model\Ticket;
+use Application\UserBundle\Model\User;
 
 /**
  * TicketService
@@ -63,6 +64,17 @@ class TicketService
   public function getByTag($tag)
   {
     return $this->mapper->getByTag($tag);
+  }
+
+  /**
+   * get by assignee
+   * 
+   * @param User $user
+   * @return array[int]Ticket
+   */
+  public function getByAssignee(User $user)
+  {
+    return $this->mapper->getByAssignee($user);
   }
 
   /**

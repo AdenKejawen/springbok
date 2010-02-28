@@ -64,7 +64,6 @@ abstract class MongoMapper implements MapperInterface
     return static::fromArray($data);
   }
 
-
   /**
    * save an object
    *
@@ -73,12 +72,15 @@ abstract class MongoMapper implements MapperInterface
    */
   public function save($object)
   {
-    $data = static::objectToArray($object);
+    $data = static::toArray($object);
 
-    if (empty($data['id']))
+    if (empty($data['_id']))
     {
+      unset($data['_id']); 
+      //make sure _it's_id is not present, or the insert won't overwrite
+      
       $success = $success = $this->getCollection()->insert($data);
-
+     
       $object->id = (string) $data['_id'];
       //set the id after insert
     }
@@ -121,7 +123,14 @@ abstract class MongoMapper implements MapperInterface
       if ($key == 'id')
       {
         $key = '_id';
-        $val = new \MongoID($val);
+        if (!empty($val)) 
+        {
+          $val = new \MongoID($val);
+        }
+        else
+        {
+          $val = null;
+        }
       }
       //turn id into MongoID
       $key = Inflector::toUnderscore($key);

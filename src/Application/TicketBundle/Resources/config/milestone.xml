@@ -9,6 +9,9 @@
     </service>
     <service id="milestone" class="Application\TicketBundle\Service\MilestoneService">
       <argument type="service" id="milestone.mapper" />
+      <call method="setTicketMapper">
+        <argument type="service" id="ticket.mapper" />
+      </call>
     </service>
   </services>
 </container>

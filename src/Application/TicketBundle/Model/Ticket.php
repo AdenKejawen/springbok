@@ -56,6 +56,13 @@ class Ticket
   public $reporterName;
 
   /**
+   * assignees
+   * 
+   * @var array[int]string
+   */
+  public $assignedTo = array();
+
+  /**
    * get reporter
    * 
    * @return User
