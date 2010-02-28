@@ -95,12 +95,12 @@ div#content {
 div#content p {
 
 }
-div.milestone div.content, div.ticket div.content {
+div.milestone div.content, div.ticket div.content, div.project div.content {
 	background-color: #fbfafa;
 	padding: 10px;
 	border: 1px solid rgba(0,0,0, 0.05);
 	-webkit-border-radius: 10px;
 }
-div.milestone div.tickets, div.ticket div.comments {
+div.milestone div.tickets, div.ticket div.comments, div.project div.milestones {
 	padding: 10px;
 }
