@@ -16,6 +16,7 @@ $view->extend('SpringbokBundle::layout');
 <ul>
 
   <?php foreach ($queue as $ticket) : ?>
+  
   <li>
     <a href="<?php echo $view->router->generate('ticket_read', array('id' => $ticket->id)) ?>">
       <?php echo $ticket->title; ?>
