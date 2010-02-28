@@ -21,7 +21,9 @@
 
   <?php foreach($milestone->tickets as $ticket) : ?>
   <li>
-    <?php echo $ticket->title; ?>
+    <a href="<?php echo $view->router->generate('ticket_read', array('id' => $ticket->id)) ?>">
+      <?php echo $ticket->title; ?>
+    </a>
   </li>
   <?php endforeach; ?>
   
