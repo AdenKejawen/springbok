@@ -1,5 +1,5 @@
 ticket_read:
-  pattern: ticket/:ticket
+  pattern: ticket/:id
   defaults: { _bundle: TicketBundle, _controller: Ticket, _action: read }
 
 queue:

@@ -34,9 +34,9 @@ class TicketController extends Controller
    * 
    * @param string $ticketId
    */
-  public function readAction($ticket)
+  public function readAction($id)
   {
-    $ticket = $this->getTicketService()->getById($ticket);
+    $ticket = $this->getTicketService()->getById($id);
     return $this->render('TicketBundle:Ticket:read', array('ticket' => $ticket));
   }
 
