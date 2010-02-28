@@ -8,8 +8,9 @@ web.templating:
   escaping:       htmlspecialchars
   assets_version: SomeVersionScheme
 
-web.user:
-  class: Application\GuardBundle\SecureUser
+web.user: ~
+
+springbok.springbok: ~
 
 ticket.ticket: ~  
 ticket.milestone: ~
