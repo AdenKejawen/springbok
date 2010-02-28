@@ -28,7 +28,7 @@ class MilestoneController extends Controller
    */
   protected function getService()
   {
-    return $this->container->getService('milestone');
+    return $this->container->getService('model.milestone');
   }
 
   /**

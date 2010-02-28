@@ -36,7 +36,7 @@ class TicketController extends Controller
    */
   protected function getTicketService()
   {
-    return $this->container->getService('ticket');
+    return $this->container->getService('model.ticket');
   }
 
   /**
@@ -46,6 +46,6 @@ class TicketController extends Controller
    */
   protected function getMilestoneService()
   {
-    return $this->container->getService('milestone');
+    return $this->container->getService('model.milestone');
   }
 }

@@ -4,10 +4,10 @@
            xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
 
   <services>
-    <service id="ticket.mapper" class="Application\TicketBundle\Model\Ticket\Mapper">
+    <service id="model.ticket.mapper" class="Application\TicketBundle\Model\Ticket\Mapper">
       <argument type="service" id="mongo.database" />
     </service>
-    <service id="ticket" class="Application\TicketBundle\Service\TicketService">
+    <service id="model.ticket" class="Application\TicketBundle\Service\TicketService">
       <argument type="service" id="ticket.mapper" />
     </service>
   </services>

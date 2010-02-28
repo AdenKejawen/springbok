@@ -8,8 +8,6 @@ class SpringbokController extends Controller
 {
   public function indexAction()
   {
-   
-
     return $this->render('SpringbokBundle:Springbok:index');
   }
 }
