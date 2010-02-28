@@ -8,7 +8,7 @@
       <argument type="service" id="mongo.database" />
     </service>
     <service id="model.ticket" class="Application\TicketBundle\Service\TicketService">
-      <argument type="service" id="ticket.mapper" />
+      <argument type="service" id="model.ticket.mapper" />
     </service>
   </services>
 </container>
