@@ -8,6 +8,10 @@
  * @package         TicketBundle
  * @subpackage      View
  */
+
+$view->extend('SpringbokBundle::layout');
+//we are using the main layout
+
 ?>
 <ul>
 

@@ -17,11 +17,42 @@
     
     <title>Springbok</title>
 
+    <link href="/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/css/springbok.css" rel="stylesheet" type="text/css" />
     
   </head>
 
   <body>
-    <?php $view->slots->output('_content') ?>
+
+    <div id="all">
+
+      <div id="top">
+        <h1>
+          <a href="<?php echo $view->router->generate('milestone_index') ?>">
+            Springbok
+          </a>
+        </h1>
+
+        <div id="nav">
+
+          <div class="username">
+            Naneau
+          </div>
+
+          <ul>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Blah</a></li>
+            <li><a href="#">Queue</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div id="content">
+        <?php $view->slots->output('_content') ?>
+      </div>
+      
+    </div>
+
   </body>
   
 </html>
