@@ -50,7 +50,7 @@ class TicketController extends Controller
     $userName = 'naneau';
     //needs to come from user service (currently logged in user)
 
-    $user = $this->container->getService('user')->getByUsername($userName);
+    $user = $this->container->getService('model.user')->getByUsername($userName);
     $queue = $this->getTicketService()->getbyAssignee($user);
     
     return $this->render('TicketBundle:Ticket:queue', array('queue' => $queue));
