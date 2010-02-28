@@ -26,7 +26,7 @@ class MilestoneController extends Controller
    *
    * @return MilestoneService
    */
-  protected function getService()
+  protected function getMilestoneService()
   {
     return $this->container->getService('model.milestone');
   }
@@ -39,7 +39,7 @@ class MilestoneController extends Controller
   public function indexAction()
   {
     //var_dump($this->getUser());
-    $milestones = $this->getService()->getAll();
+    $milestones = $this->getMilestoneService()->getAll();
     //all milestones
     return $this->render('TicketBundle:Milestone:index', array('milestones' => $milestones));
   }
@@ -51,7 +51,7 @@ class MilestoneController extends Controller
    */
   public function readAction($id)
   {
-    $milestone = $this->getService()->getById($id);
+    $milestone = $this->getMilestoneService()->getById($id);
     return $this->render('TicketBundle:Milestone:read', array(
       'milestone' => $milestone
      ));
