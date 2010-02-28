@@ -48,12 +48,10 @@ class MilestoneController extends Controller
    *
    * @return Response
    */
-  public function milestoneAction()
+  public function readAction($id)
   {
-    $id = $this->getRequest()->getParameter('milestone');
-
     $milestone = $this->getService()->getById($id);
-    return $this->render('TicketBundle:Milestone:milestone', array(
+    return $this->render('TicketBundle:Milestone:read', array(
       'milestone' => $milestone
      ));
   }
