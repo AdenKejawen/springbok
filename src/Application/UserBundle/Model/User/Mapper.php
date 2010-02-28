@@ -34,7 +34,7 @@ class Mapper extends MongoMapper
    */
   static public function fromArray(array $array)
   {
-    return self::arrayToObject($array);
+    return self::arrayToObject($array, 'Application\\UserBundle\\Model\\User');
   }
 
   /**
@@ -52,6 +52,6 @@ class Mapper extends MongoMapper
    */
   public function getByUsername($username)
   {
-    return $this->getCollection()->findOne(array('username' => $username));
+    return static::fromArray($this->getCollection()->findOne(array('username' => $username)));
   }
 }

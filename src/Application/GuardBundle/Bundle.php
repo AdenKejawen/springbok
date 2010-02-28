@@ -36,43 +36,20 @@ class Bundle extends BaseBundle
     $user = $this->container->getUserService();
     $request = $event->getParameter('request');
 
-    $safeActions = array(
-      'login' => array(
-        '_bundle' => 'GuardBundle',
-        '_controller' => 'Guard',
-        '_action' => 'login',
-      ),
-      'signup' => array(
-        '_bundle' => 'GuardBundle',
-        '_controller' => 'Guard',
-        '_action' => 'signup',
-      )
-    );
-
+    $safeControllers = array('Guard', 'Exception');
     $isAuthenticated = $user->isAuthenticated();
 
-    $isSafe = false;
-
-    foreach($safeActions as $params)
-    {
-      $isSafeBundle     = $request->getPathParameter('_bundle') === $params['_bundle'];
-      $isSafeController = $request->getPathParameter('_controller') === $params['_controller'];
-      $isSafeAction     = $request->getPathParameter('_action') === $params['_action'];
-
-      $isSafe = $isSafe || ($isSafeBundle && $isSafeController && $isSafeAction);
-    }
-
-
     // if the use is not authenticated
-    // and we are not already on the login page
-    if (!($user->isAuthenticated() || $isSafe))
+    // and we are not on a safe route
+    if (!($user->isAuthenticated() || in_array($request->getPathParameter('_controller'), $safeControllers)))
     {
       $controller = new GuardController($this->container);
       $response = $controller->loginAction();
       $event->setReturnValue($response);
-      $event->setProcessed(true);
+
+      return true;
     }
 
-    return $event;
+    return false;
   }
 }
