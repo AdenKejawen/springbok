@@ -39,7 +39,7 @@ $view->extend('SpringbokBundle::layout');
   </div>
 
   <div class="comments">
-    <h2>Comments (0)</h2>
+    <h2>Comments (<?php echo count($ticket->comments); ?>)</h2>
 
   </div>
 </div>

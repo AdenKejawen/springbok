@@ -63,6 +63,13 @@ class Ticket
   public $assignedTo = array();
 
   /**
+   * array of comments
+   * 
+   * @var array[int]Comment
+   */
+  public $comments = array();
+
+  /**
    * get reporter
    * 
    * @return User
