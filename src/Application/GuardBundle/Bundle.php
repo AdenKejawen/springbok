@@ -43,8 +43,7 @@ class Bundle extends BaseBundle
     // and we are not on a safe route
     if (!($user->isAuthenticated() || in_array($request->getPathParameter('_controller'), $safeControllers)))
     {
-      $controller = new GuardController($this->container);
-      $response = $controller->loginAction();
+      $response = $this->container->getControllerLoaderService()->run('GuardBundle:Guard:login', array());
       $event->setReturnValue($response);
 
       return true;
