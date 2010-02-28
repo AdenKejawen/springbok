@@ -29,30 +29,19 @@ class TicketController extends Controller
   {
   }
 
+  /**
+   * see a queue of tickets the current user is assigned to
+   * 
+   * @return Response
+   */
   public function queueAction()
   {
-    $milestone = $this->getMilestoneService()->getById('4b8a74898ead0e0787140000');
-
-    $ticket = new \Application\TicketBundle\Model\Ticket;
-    $ticket->title = 'naneauticket 2';
-    $ticket->reporterName = 'ubermuda';
-    $ticket->description = 'this is assigned to naneau';
-    $ticket->tags = array('awesome');
-    $ticket->assignedTo[] = 'naneau';
-    //new ticket
-    $milestone->tickets[] = $ticket;
-//    $this->getMilestoneService()->save($milestone);
-    
     $userName = 'naneau';
     //needs to come from user service (currently logged in user)
 
     $user = $this->container->getService('user')->getByUsername($userName);
-//    var_dump($user)
-    ;
     $queue = $this->getTicketService()->getbyAssignee($user);
-    var_dump($queue);
-
-
+    
     return $this->createResponse('lalal');
   }
 
