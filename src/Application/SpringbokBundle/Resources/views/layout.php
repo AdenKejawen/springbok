@@ -44,6 +44,13 @@
             <li><a href="#">Blah</a></li>
             <li><a href="#">Queue</a></li>
           </ul>
+
+          <div class="logout">
+            <a href="#">
+              logout
+            </a>
+          </div>
+
         </div>
       </div>
       
