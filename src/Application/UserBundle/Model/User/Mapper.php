@@ -10,7 +10,7 @@
 namespace Application\UserBundle\Model\User;
 
 use Application\SpringbokBundle\Model\Mapper\MongoMapper;
-use Application\UserBundle\User;
+use Application\UserBundle\Model\User;
 
 /**
  * Mapper
