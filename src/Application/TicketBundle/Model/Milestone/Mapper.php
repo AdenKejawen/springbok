@@ -56,7 +56,11 @@ class Mapper extends MongoMapper
     $ticketIds = array();
     foreach($milestone->tickets as $ticketRef)
     {
-      $milestone->tickets[] = $ticketRef['$id'];
+      if (!empty($ticketRef['$id'])) 
+      {
+        //it should not be empty, but let's check for sanity
+        $milestone->tickets[] = $ticketRef['$id'];
+      }
     }
     
     return $milestone;
