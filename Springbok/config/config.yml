@@ -8,6 +8,10 @@ web.templating:
   escaping:       htmlspecialchars
   assets_version: SomeVersionScheme
 
+web.user: ~
+
+springbok.springbok: ~
+
 ticket.ticket: ~  
 ticket.milestone: ~
 

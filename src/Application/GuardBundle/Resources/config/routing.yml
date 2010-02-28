@@ -1,0 +1,11 @@
+guard_signup:
+  pattern: /signup
+  defaults: { _bundle: GuardBundle, _controller: Guard, _action: signup }
+
+guard_login:
+  pattern: /login
+  defaults: { _bundle: GuardBundle, _controller: Guard, _action: login }
+
+guard_logout:
+  pattern: /logout
+  defaults: { _bundle: GuardBundle, _controller: Guard, _action: logout }

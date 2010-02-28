@@ -16,7 +16,7 @@ namespace Application\UserBundle\Model;
  * @package         UserBundle
  * @subpackage      Model
  */
-class User extends \Application\SpringbokBundle\Model\DomainObject
+class User
 {
   /**
    * Id
@@ -31,6 +31,13 @@ class User extends \Application\SpringbokBundle\Model\DomainObject
    * @var string
    */
   public $username;
+
+  /**
+   * password
+   *
+   * @var string
+   */
+  public $password;
 
   /**
    * email

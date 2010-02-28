@@ -38,6 +38,7 @@ class MilestoneController extends Controller
    */
   public function indexAction()
   {
+    //var_dump($this->getUser());
     $milestones = $this->getService()->getAll();
     //all milestones
     return $this->render('TicketBundle:Milestone:index', array('milestones' => $milestones));
