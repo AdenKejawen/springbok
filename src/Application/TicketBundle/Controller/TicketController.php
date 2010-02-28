@@ -64,35 +64,4 @@ class TicketController extends Controller
   {
     return $this->container->getService('milestone');
   }
-//
-//        $milestone = new \Application\TicketBundle\Model\Milestone();
-//    $milestone->name = 'new milestone';
-//    $milestone->description = 'lalalalaal';
-//    //new milestone
-//
-//    $ticket = new \Application\TicketBundle\Model\Ticket;
-//    $ticket->title = 'naneauticket 2';
-//    $ticket->reporterName = 'ubermuda';
-//    $ticket->description = 'this is assigned to naneau';
-//    $ticket->tags = array('naneau','awesome');
-//    //new ticket
-//
-//    $milestone = $this->getMilestoneService()->getById('4b8a74898ead0e0787140000');
-//    echo 'tickets before add ';
-//    var_dump($milestone->tickets);
-//
-//    $this->getTicketService()->save($ticket);
-//    echo 'ticket saved, id : ' . $ticket->id . '<br />';
-//
-//    $milestone->tickets[] = $ticket;
-//    echo 'tickets milestone before save';
-//    var_dump($milestone->tickets);
-//
-//    $this->getMilestoneService()->save($milestone);
-//    echo 'milestone saved, id: ' . $milestone->id . '<br />';
-//
-//    $milestone = $this->getMilestoneService()->getById('4b8a74898ead0e0787140000');
-//
-//    echo 'tickets in milestone';
-//    var_dump($milestone->tickets);
 }
