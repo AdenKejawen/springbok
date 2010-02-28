@@ -103,6 +103,7 @@ abstract class MongoMapper implements MapperInterface
     $objects = array();
     foreach($cursor as $data)
     {
+      
       $objects[] = static::fromArray($data);
     }
     return $objects;
@@ -153,6 +154,10 @@ abstract class MongoMapper implements MapperInterface
 
     foreach($array as $key => $val)
     {
+      if ($key == 'id')
+      {
+        continue; //sanity check, we can not have saved id's
+      }
       if ($key == '_id')
       {
         $key = 'id';
