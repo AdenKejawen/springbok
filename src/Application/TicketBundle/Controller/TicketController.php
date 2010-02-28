@@ -42,7 +42,7 @@ class TicketController extends Controller
     $user = $this->container->getService('user')->getByUsername($userName);
     $queue = $this->getTicketService()->getbyAssignee($user);
     
-    return $this->createResponse('lalal');
+    return $this->render('TicketBundle:Ticket:queue', array('queue' => $queue));
   }
 
   /**
