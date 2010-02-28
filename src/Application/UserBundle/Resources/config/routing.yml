@@ -1,3 +1,7 @@
 homepage:
   pattern: /users
   defaults: { _bundle: UserBundle, _controller: User, _action: index }
+
+user_dashboard:
+  pattern: /dashboard
+  defaults: { _bundle: UserBundle, _controller: User, _action: dashboard }

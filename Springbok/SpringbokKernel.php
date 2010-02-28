@@ -51,9 +51,10 @@ class SpringbokKernel extends Kernel
       new Bundle\MongoBundle\Bundle(),
 
       // register your bundles here
+      new Application\SpringbokBundle\Bundle(),
+      new Application\GuardBundle\Bundle(),
       new Application\UserBundle\Bundle(),
       new Application\TicketBundle\Bundle(),
-      new Application\SpringbokBundle\Bundle(),
     );
   }
 

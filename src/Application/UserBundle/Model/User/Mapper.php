@@ -52,8 +52,7 @@ class Mapper extends MongoMapper
    */
   public function getByUsername($username)
   {
-    return self::fromArray(
-      $this->getCollection()->findOne(array('username' => $username))
-    );
+    $user = $this->getCollection()->findOne(array('username' => $username));
+    return $user ? static::fromArray($user) : null;
   }
 }
