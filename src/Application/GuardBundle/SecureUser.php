@@ -8,7 +8,7 @@ class SecureUser extends User
 {
   public function isAuthenticated()
   {
-    return $this->getAttribute('is_authenticated');
+    return $this->getAttribute('is_authenticated', false);
   }
 
   public function setAuthenticated($bool)
