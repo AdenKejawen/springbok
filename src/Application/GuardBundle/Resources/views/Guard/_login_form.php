@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo $view->router->generate('login'); ?>">
+<form method="post" action="<?php echo $view->router->generate('guard_login'); ?>">
   <div class="form-field">
     <label for="username">Username</label>
     <input type="text" name="username" id="username" />

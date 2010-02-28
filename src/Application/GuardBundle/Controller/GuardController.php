@@ -9,7 +9,26 @@ class GuardController extends Controller
 {
   public function loginAction()
   {
+    if ($this->getRequest()->getMethod() == 'POST')
+    {
+      $user = $this->container->getService('model.user')->getByUsername($this->getRequest()->getParameter('username'));
+
+      var_dump($user);
+
+      if ($user && $user->password == $this->getRequest()->getParameter('password'))
+      {
+        $this->getUser()->login($user);
+        return $this->redirect($this->generateUrl('user_dashboard'));
+      }
+    }
+
     return $this->render('GuardBundle:Guard:login');
+  }
+
+  public function logoutAction()
+  {
+    $this->getUser()->logout();
+    return $this->redirect($this->generateUrl('homepage'));
   }
 
   public function signupAction()

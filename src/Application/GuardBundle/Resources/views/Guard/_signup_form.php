@@ -1,4 +1,4 @@
-<form method="post" action="<?php echo $view->router->generate('signup'); ?>">
+<form method="post" action="<?php echo $view->router->generate('guard_signup'); ?>">
   <div class="form-field">
     <label for="username">Username</label>
     <input type="text" name="username" id="username" />
