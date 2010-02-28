@@ -11,27 +11,38 @@ $view->extend('SpringbokBundle::layout');
 //we are using the main layout
 
 ?>
+<div class="project">
+  <div class="content">
+    <h2>Project shit goes here</h2>
+    lalalalalalalala
+    <h3>Some Info</h3>
+    blah
+  </div>
 
-<h2>Milestones</h2>
+  <div class="milestones">
+    <h2>Milestones</h2>
 
-<ul class="milestones">
+    <ul>
 
-  <?php foreach($milestones as $milestone ) : ?>
-  <li>
-    
-    <div class="name">
-      <a href="<?php echo $view->router->generate('milestone_read', array('id' => $milestone->id)) ?>">
-        <?php echo $milestone->name; ?>
+      <?php foreach($milestones as $milestone ) : ?>
+      <li>
 
-        (<span class="comment-count"><?php echo count($milestone->tickets); ?></span>)
-      </a>
-    </div>
+        <div class="name">
+          <a href="<?php echo $view->router->generate('milestone_read', array('id' => $milestone->id)) ?>">
+            <?php echo $milestone->name; ?>
 
-    <div class="description">
-      <?php echo $milestone->description; ?>
-    </div>
-    
-  </li>
-  <?php endforeach ?>
+            (<span class="comment-count"><?php echo count($milestone->tickets); ?></span>)
+          </a>
+        </div>
 
-</ul>
+        <div class="description">
+          <?php echo $milestone->description; ?>
+        </div>
+
+      </li>
+      <?php endforeach ?>
+
+    </ul>
+  </div>
+  
+</div>
