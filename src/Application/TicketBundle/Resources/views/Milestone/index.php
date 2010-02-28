@@ -20,7 +20,7 @@ $view->extend('SpringbokBundle::layout');
   <li>
     
     <div class="name">
-      <a href="<?php echo $view->router->generate('tickets_per_milestone', array('milestone' => $milestone->id)) ?>">
+      <a href="<?php echo $view->router->generate('milestone_read', array('id' => $milestone->id)) ?>">
         <?php echo $milestone->name; ?>
 
         (<span class="comment-count"><?php echo count($milestone->tickets); ?></span>)

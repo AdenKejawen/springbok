@@ -19,6 +19,13 @@ namespace Application\TicketBundle\Model;
 class Milestone
 {
   /**
+   * identifier
+   * 
+   * @var string
+   */
+  public $id;
+
+  /**
    * name for the milestone
    *
    * @var string

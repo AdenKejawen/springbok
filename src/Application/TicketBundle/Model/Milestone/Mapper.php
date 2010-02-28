@@ -51,9 +51,14 @@ class Mapper extends MongoMapper
    */
   static public function fromArray(array $array)
   {
-    $milestone          = self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Milestone');
-    $milestone->tickets = TicketMapper::collectionToObjects($milestone->tickets);
+    $milestone = self::arrayToObject($array, 'Application\\TicketBundle\\Model\\Milestone');
 
+    $ticketIds = array();
+    foreach($milestone->tickets as $ticketRef)
+    {
+      $milestone->tickets[] = $ticketRef['$id'];
+    }
+    
     return $milestone;
   }
 
@@ -64,9 +69,13 @@ class Mapper extends MongoMapper
    */
   static public function toArray(Milestone $milestone)
   {
-    $array            = self::objectToArray($milestone);
-    $array['tickets'] = TicketMapper::collectionToArrays($array['tickets']);
-
+    $array = self::objectToArray($milestone);
+    
+    $array['tickets'] = array();
+    foreach($milestone->tickets as $ticket) {
+      $array['tickets'][] = \MongoDBRef::create('tickets', $ticket->id);
+    }
+    
     return $array;
   }
 }

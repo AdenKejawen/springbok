@@ -1,9 +1,11 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * read.php
+ *
+ * @category        Springbok
+ * @package         TicketBundle
+ * @subpackage      View
  */
-
 ?>
 
 <a href="<?php echo $view->router->generate('milestone_index') ?>">
@@ -19,7 +21,9 @@
 
   <?php foreach($milestone->tickets as $ticket) : ?>
   <li>
-    <?php echo $ticket->title; ?>
+    <a href="<?php echo $view->router->generate('ticket_read', array('id' => $ticket->id)) ?>">
+      <?php echo $ticket->title; ?>
+    </a>
   </li>
   <?php endforeach; ?>
   
