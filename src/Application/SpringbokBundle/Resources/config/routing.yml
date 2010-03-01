@@ -1,3 +1,7 @@
 homepage:
   pattern: /
   defaults: { _bundle: SpringbokBundle, _controller: Springbok, _action: index }
+
+dashboard:
+  pattern: /dashboard
+  defaults: { _bundle: SpringbokBundle, _controller: Dashboard, _action: index }

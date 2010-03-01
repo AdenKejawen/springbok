@@ -47,4 +47,5 @@ class SpringbokUser extends SecureUser
 
     return $this->user;
   }
+
 }

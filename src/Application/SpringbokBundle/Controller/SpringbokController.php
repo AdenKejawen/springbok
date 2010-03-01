@@ -26,6 +26,12 @@ class SpringbokController extends Controller
    */
   public function indexAction()
   {
+    if ($this->getUser()->isAuthenticated())
+    {
+      //we are authenticated so redirect to dashboard
+      return $this->redirect($this->generateUrl('dashboard'));
+    }
+    
     return $this->render('SpringbokBundle:Springbok:index');
   }
 }
