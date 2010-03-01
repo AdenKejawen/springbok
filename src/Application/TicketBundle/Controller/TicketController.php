@@ -9,7 +9,7 @@
 
 namespace Application\Ticketbundle\Controller;
 
-use Applicationb\SpringbokBundle\Controller;
+use Application\SpringbokBundle\Controller;
 
 /**
  * TicketController
