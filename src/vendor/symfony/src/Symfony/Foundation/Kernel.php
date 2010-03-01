@@ -84,6 +84,16 @@ abstract class Kernel
   abstract public function registerRoutes();
 
   /**
+   * Checks whether the current kernel has been booted or not.
+   *
+   * @return boolean $booted
+   */
+  public function isBooted()
+  {
+    return $this->booted;
+  }
+
+  /**
    * Boots the current kernel.
    *
    * This method boots the bundles, which MUST set
@@ -180,6 +190,12 @@ abstract class Kernel
 
   public function getDefaultParameters()
   {
+    $bundles = array();
+    foreach ($this->bundles as $bundle)
+    {
+      $bundles[] = get_class($bundle);
+    }
+
     return array_merge(
       array(
         'kernel.root_dir'    => $this->rootDir,
@@ -189,6 +205,7 @@ abstract class Kernel
         'kernel.cache_dir'   => $this->rootDir.'/cache/'.$this->environment,
         'kernel.logs_dir'    => $this->rootDir.'/logs',
         'kernel.bundle_dirs' => $this->bundleDirs,
+        'kernel.bundles'     => $bundles,
         'kernel.charset'     => 'UTF-8',
       ),
       $this->getEnvParameters(),
@@ -218,9 +235,9 @@ abstract class Kernel
     $parameters = array();
     foreach ($_SERVER as $key => $value)
     {
-      if ('SYMFONY__' === $key = substr($key, 0, 9))
+      if ('SYMFONY__' === substr($key, 0, 9))
       {
-        $parameters[strtolower(str_replace('__', '.', $key))] = $value;
+        $parameters[strtolower(str_replace('__', '.', substr($key, 9)))] = $value;
       }
     }
 
@@ -262,30 +279,20 @@ abstract class Kernel
     $container->merge($configuration);
     $this->optimizeContainer($container);
 
-    // cache dir
-    if (!is_dir($parameters['kernel.cache_dir']))
+    foreach (array('cache', 'logs') as $name)
     {
-      if (false === @mkdir($parameters['kernel.cache_dir'], 0777, true))
+      $key = sprintf('kernel.%s_dir', $name);
+      if (!is_dir($parameters[$key]))
       {
-        die(sprintf('Unable to write in the cache directory (%s)', dirname($parameters['kernel.cache_dir'])));
+        if (false === @mkdir($parameters[$key], 0777, true))
+        {
+          die(sprintf('Unable to create the %s directory (%s)', $name, dirname($parameters['kernel.cache_dir'])));
+        }
       }
-    }
-    elseif (!is_writable($parameters['kernel.cache_dir']))
-    {
-      die(sprintf('Unable to write in the cache directory (%s)', $parameters['kernel.cache_dir']));
-    }
-
-    // logs dir
-    if (!is_dir($parameters['kernel.logs_dir']))
-    {
-      if (false === @mkdir($parameters['kernel.logs_dir'], 0777, true))
+      elseif (!is_writable($parameters[$key]))
       {
-        die(sprintf('Failed to write in the logs directory (%s)', dirname($parameters['kernel.logs_dir'])));
+        die(sprintf('Unable to write in the %s directory (%s)', $name, $parameters['kernel.cache_dir']));
       }
-    }
-    elseif (!is_writable($parameters['kernel.logs_dir']))
-    {
-      die(sprintf('Failed to write in the logs directory (%s)', $parameters['kernel.logs_dir']));
     }
 
     // cache the container
