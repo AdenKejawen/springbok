@@ -47,10 +47,7 @@ class TicketController extends Controller
    */
   public function queueAction()
   {
-    $userName = 'naneau';
-    //needs to come from user service (currently logged in user)
-
-    $user = $this->container->getService('model.user')->getByUsername($userName);
+    $user = $this->getUser()->getUser();
     $queue = $this->getTicketService()->getbyAssignee($user);
     
     return $this->render('TicketBundle:Ticket:queue', array('queue' => $queue));
