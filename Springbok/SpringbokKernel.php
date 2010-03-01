@@ -55,6 +55,7 @@ class SpringbokKernel extends Kernel
       new Application\GuardBundle\Bundle(),
       new Application\UserBundle\Bundle(),
       new Application\TicketBundle\Bundle(),
+      new Application\ProjectBundle\Bundle(),
     );
   }
 
