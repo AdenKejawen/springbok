@@ -29,7 +29,7 @@ class User extends DomainObject
 
   /**
    * username
-   * 
+   *
    * @var string
    */
   public $username;
@@ -43,7 +43,7 @@ class User extends DomainObject
 
   /**
    * salt for the password
-   * 
+   *
    * @var string
    */
   public $salt;
@@ -72,10 +72,10 @@ class User extends DomainObject
   {
     return in_array($role, $this->roles);
   }
-  
+
   /**
    * add a role to this user
-   * 
+   *
    * @param string $role
    * @return void
    */
@@ -83,7 +83,7 @@ class User extends DomainObject
   {
     $this->removeRole($role);
     //make sure we don't get duplicates
-    
+
     $this->roles[] = $role;
   }
 
@@ -117,17 +117,6 @@ class User extends DomainObject
     $this->salt = self::generateSalt();
 
     $this->hashedPassword = self::hash($newPassword, $this->salt);
-  }
-
-  /**
-   * You can't get the password
-   *
-   * @throw \LogicException
-   */
-  public function getPassword()
-  {
-    throw new LogicException('You can\'t retrieve a user\'s password, sorry');
-
   }
 
   /**
