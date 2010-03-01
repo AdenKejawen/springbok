@@ -9,6 +9,8 @@
 
 namespace Application\UserBundle\Model;
 
+use Application\SpringbokBundle\Model\DomainObject;
+
 /**
  * User
  *
@@ -16,7 +18,7 @@ namespace Application\UserBundle\Model;
  * @package         UserBundle
  * @subpackage      Model
  */
-class User
+class User extends DomainObject
 {
   /**
    * Id
@@ -37,7 +39,7 @@ class User
    *
    * @var string
    */
-  public $password;
+  public $hashedPassword;
 
   /**
    * salt for the password
@@ -103,26 +105,39 @@ class User
   }
 
   /**
+   * set a new password and hash with a random salt
+   *
+   * can be accessed as a setter property like $user->password = 'n3w_P455w0rd';
+   *
+   * @param string $newPassword
+   * @return void
+   */
+  public function setPassword($newPassword)
+  {
+    $this->salt = self::generateSalt();
+
+    $this->hashedPassword = self::hash($newPassword, $this->salt);
+  }
+
+  /**
+   * getter part of the property, should not be needed since you don't need access
+   * to the hashed password
+   *
+   * @return void
+   */
+  public function getPassword()
+  {
+    //do we throw an exception here?
+  }
+
+  /**
    * check wether a password matches the hashed password
    *
    * @param string $password
    */
   public function passwordMatches($password)
   {
-    return self::hash($password, $this->salt) == $this->password;
-  }
-
-  /**
-   * set a new password and hash with a random salt
-   * 
-   * @param string $newPassword
-   * @return void
-   */
-  public function setAndHashPassword($newPassword)
-  {
-    $this->salt = self::generateSalt();
-
-    $this->password = self::hash($newPassword, $this->salt);
+    return self::hash($password, $this->salt) == $this->hashedPassword;
   }
 
   /**
