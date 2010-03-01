@@ -2,6 +2,8 @@
 
 namespace Symfony\Framework\WebBundle\Util;
 
+use Symfony\Framework\WebBundle\Util\FileFilterIterator;
+
 /*
  * This file is part of the symfony framework.
  *
@@ -25,7 +27,8 @@ class Mustache
 
   static public function renderDir($dir, $parameters)
   {
-    foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir), \RecursiveIteratorIterator::LEAVES_ONLY) as $file)
+    $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($dir), \RecursiveIteratorIterator::LEAVES_ONLY);
+    foreach (new FileFilterIterator($iterator) as $file)
     {
       static::renderFile((string) $file, $parameters);
     }

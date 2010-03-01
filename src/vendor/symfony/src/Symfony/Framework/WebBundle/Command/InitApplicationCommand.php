@@ -21,7 +21,7 @@ use Symfony\Framework\WebBundle\Util\Mustache;
  */
 
 /**
- * Initializes a new application.
+ * Initializes a new bundle.
  *
  * @package    symfony
  * @subpackage console
@@ -36,10 +36,7 @@ class InitApplicationCommand extends BaseCommand
   {
     $this
       ->setDefinition(array(
-        new InputArgument('name', InputArgument::REQUIRED, 'The application name'),
-        new InputArgument('path', InputArgument::REQUIRED, 'The path to the application'),
-        new InputArgument('web_path', InputArgument::REQUIRED, 'The path to the public web root'),
-        new InputOption('yaml', '', InputOption::PARAMETER_NONE, 'Use YAML for configuration files'),
+        new InputArgument('name', InputArgument::REQUIRED, 'The name of the application to create'),
       ))
       ->setName('init:application')
     ;
@@ -50,37 +47,25 @@ class InitApplicationCommand extends BaseCommand
    */
   protected function execute(InputInterface $input, OutputInterface $output)
   {
-    if (file_exists($targetDir = $input->getArgument('path')))
+    $name = $input->getArgument('name');
+
+    $output->writeln(sprintf('Initializing application "<info>%s</info>"', $name));
+
+    if (file_exists($targetDir = getcwd().'/'.$name))
     {
-      throw new \RuntimeException(sprintf('The directory "%s" already exists.', $targetDir));
+      throw new \RuntimeException(sprintf('Application "%s" already exists.', $name));
     }
-
-    if (!file_exists($webDir = $input->getArgument('web_path')))
-    {
-      mkdir($webDir, 0777, true);
-    }
-
-    $parameters = array(
-      'class' => $input->getArgument('name'),
-      'application' => strtolower($input->getArgument('name')),
-    );
-
-    $format = $input->getOption('yaml') ? 'yaml' : 'xml';
+    
+    $kernelClassName = $name.'Kernel';
 
     $filesystem = new Filesystem();
+    $filesystem->mirror(__DIR__.'/../Resources/skeleton/application/yaml/', $targetDir);
 
-    $filesystem->mirror(__DIR__.'/../Resources/skeleton/application/'.$format, $targetDir);
-    Mustache::renderDir($targetDir, $parameters);
-    $filesystem->chmod($targetDir.'/console', 0777);
-    $filesystem->chmod($targetDir.'/logs', 0777);
-    $filesystem->chmod($targetDir.'/cache', 0777);
+    Mustache::renderDir($targetDir, array(
+      'class' => $name,
+    ));
 
-    $filesystem->rename($targetDir.'/Kernel.php', $targetDir.'/'.$input->getArgument('name').'Kernel.php');
-
-    $filesystem->copy(__DIR__.'/../Resources/skeleton/web/front_controller.php', $file = $webDir.'/'.(file_exists($webDir.'/index.php') ? strtolower($input->getArgument('name')) : 'index').'.php');
-    Mustache::renderFile($file, $parameters);
-
-    $filesystem->copy(__DIR__.'/../Resources/skeleton/web/front_controller_debug.php', $file = $webDir.'/'.strtolower($input->getArgument('name')).'_dev.php');
-    Mustache::renderFile($file, $parameters);
+    $filesystem->rename($targetDir.'/Kernel.php', $targetDir.'/'.$kernelClassName.'.php');
+    $filesystem->chmod($targetDir.'/console', 0755);
   }
 }

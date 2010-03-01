@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__.'/../src/autoload.php';
-require_once __DIR__.'/../src/vendor/symfony/src/Symfony/Foundation/bootstrap.php';
+require_once __DIR__.'/../src/vendor/Symfony/src/Symfony/Foundation/bootstrap.php';
 
 use Symfony\Foundation\Kernel;
 use Symfony\Components\DependencyInjection\Loader\YamlFileLoader as ContainerLoader;
@@ -16,7 +16,7 @@ class {{ class }}Kernel extends Kernel
 
   public function registerBundles()
   {
-    return array(
+    $bundles = array(
       new Symfony\Foundation\Bundle\KernelBundle(),
       new Symfony\Framework\WebBundle\Bundle(),
 
@@ -27,6 +27,13 @@ class {{ class }}Kernel extends Kernel
 
       // register your bundles here
     );
+
+    if ($this->isDebug())
+    {
+      $bundles[] = new Symfony\Framework\ProfilerBundle\Bundle();
+    }
+
+    return $bundles;
   }
 
   public function registerBundleDirs()

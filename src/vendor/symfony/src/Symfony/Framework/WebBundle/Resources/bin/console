@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__.'/../../../../Foundation/UniversalClassLoader.php';
+
+$loader = new Symfony\Foundation\UniversalClassLoader();
+$loader->registerNamespaces(array(
+  'Symfony' => __DIR__.'/../../../../../',
+));
+$loader->register();
+
+use Symfony\Components\Console\Application;
+use Symfony\Foundation\ClassLoader;
+use Symfony\Foundation\Kernel;
+
+$application = new Application('Symfony', Kernel::VERSION);
+$application->addCommand(new Symfony\Framework\WebBundle\Command\InitApplicationCommand());
+$application->run();
