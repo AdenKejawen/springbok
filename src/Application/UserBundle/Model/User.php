@@ -83,12 +83,14 @@ class User
   }
 
   /**
-   * set a new password and hash with a random
+   * set a new password and hash with a random salt
+   * 
    * @param string $newPassword
+   * @return void
    */
   public function setAndHashPassword($newPassword)
   {
-    $this->generateSalt();
+    $this->salt = self::generateSalt();
 
     $this->password = self::hash($newPassword, $this->salt);
   }
@@ -98,20 +100,24 @@ class User
    *
    * @return void
    */
-  protected function generateSalt()
+  protected static function generateSalt()
   {
-    $this->salt = '';
+    $salt = '';
 
     $alNum = 'abcdefghijklmnopqrstuvwxyz0123456789';
     for ($x = 0; $x < 20; $x++)
     {
-      $this->salt .= $alNum[rand(0, 36)];
+      $salt .= $alNum[rand(0, 36)];
     }
+
+    return $salt;
   }
 
   /**
    * hash a password with salt
    *
+   * @param string $password
+   * @param string $salt
    * @return string
    */
   protected static function hash($password, $salt)
