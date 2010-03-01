@@ -52,6 +52,7 @@ class SpringbokKernel extends Kernel
 
       // register your bundles here
       new Application\SpringbokBundle\Bundle(),
+      new Application\ProjectBundle\Bundle(),
       new Application\GuardBundle\Bundle(),
       new Application\UserBundle\Bundle(),
       new Application\TicketBundle\Bundle(),

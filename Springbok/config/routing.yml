@@ -4,6 +4,9 @@ user:
 ticket:
   resource: TicketBundle/Resources/config/routing.yml
 
+project:
+  resource: ProjectBundle/Resources/config/routing.yml
+
 guard:
   resource: GuardBundle/Resources/config/routing.yml
   
