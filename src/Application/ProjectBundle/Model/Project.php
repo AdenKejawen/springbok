@@ -37,6 +37,13 @@ class Project extends DomainObject
   public $name;
 
   /**
+   * description
+   * 
+   * @var string
+   */
+  public $description;
+
+  /**
    * tags
    * 
    * @var array[int]string

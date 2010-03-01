@@ -28,6 +28,11 @@ class ProjectController extends Controller
    */
   public function indexAction()
   {
+//    $project = new \Application\ProjectBundle\Model\Project();
+//    $project->name = 'Naneau\'s Project';
+//    $project->description = 'It is a very cool project :x';
+//    $this->getProjectService()->save($project);
+    
     $projects = $this->getProjectService()->getAll();
     return $this->render('ProjectBundle:Project:index', array('projects' => $projects));
   }

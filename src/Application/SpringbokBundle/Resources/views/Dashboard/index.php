@@ -27,8 +27,7 @@ $view->extend('SpringbokBundle::layout');
 
   <div id="projects">
     <h2>Projects</h2>
-    <p>List of projects here... </p>
-    <?php //$view->actions->output('TicketBundle:Ticket:queue'); ?>
+    <?php $view->actions->output('ProjectBundle:Project:index'); ?>
   </div>
 
 </div>

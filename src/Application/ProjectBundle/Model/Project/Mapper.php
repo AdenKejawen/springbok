@@ -62,9 +62,9 @@ class Mapper extends MongoMapper
    * @param DomainObject $object
    * @return array
    */
-  public function toArray(DomainObject $object)
+  public static function toArray(DomainObject $object)
   {
-    return self::objectToArray($ticket);
+    return self::objectToArray($object);
   }
 
   /**
@@ -73,7 +73,7 @@ class Mapper extends MongoMapper
    * @param array $data
    * @return Project
    */
-  public function fromArray(array $data)
+  public static function fromArray(array $array)
   {
     return self::arrayToObject($array, 'Application\\ProjectBundle\\Model\\Project');
   }
