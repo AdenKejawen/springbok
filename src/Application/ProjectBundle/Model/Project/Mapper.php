@@ -32,6 +32,18 @@ class Mapper extends MongoMapper
   }
 
   /**
+   * get all projects
+   * 
+   * @return array[int]Project
+   */
+  public function getAll()
+  {
+    return static::fromCursor(
+      $this->getCollection()->find()
+    );
+  }
+
+  /**
    * get Tickets by tag(s)
    *
    * @param string|array $tag
