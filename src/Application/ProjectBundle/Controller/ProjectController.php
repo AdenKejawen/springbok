@@ -28,6 +28,17 @@ class ProjectController extends Controller
    */
   public function indexAction()
   {
-    return $this->createResponse('lalalalal');
+    $projects = $this->getProjectService()->getAll();
+    return $this->render('ProjectBundle:Project:index', array('projects' => $projects));
+  }
+
+  /**
+   * get project service
+   *
+   * @return ProjectService
+   */
+  protected function getProjectService()
+  {
+    return $this->container->getService('model.project');
   }
 }

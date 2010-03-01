@@ -22,12 +22,13 @@ use Application\ProjectBundle\Model\Project;
  */
 class Mapper extends MongoMapper
 {
-    /**
+  /**
+   * 
    * @return \MongoCollection
    */
   public function getCollection()
   {
-    return $this->mongo->tickets;
+    return $this->mongo->projects;
   }
 
   /**
