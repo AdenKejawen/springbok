@@ -57,24 +57,6 @@ class Mapper extends MongoMapper
   }
 
   /**
-   * get tickets by a set of ids, useful for references
-   * 
-   * @param array $ids array of ids in string form ('hash1', 'hash2');
-   * @return array[int]Ticket
-   */
-  public function getByIds($ids)
-  {
-    foreach($ids as $key => $val)
-    {
-      $ids[$key] = new \MongoId($val);
-    }
-    
-    return static::fromCursor(
-      $this->getCollection()->find(array('_id' => array('$in' => $ids)))
-    );
-  }
-
-  /**
    * get tickets by user
    *
    * @param User $user
