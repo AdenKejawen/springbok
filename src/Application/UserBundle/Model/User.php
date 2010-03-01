@@ -120,11 +120,11 @@ class User extends DomainObject
    * @param string $newPassword
    * @return void
    */
-  public function setAndHashPassword($newPassword)
+  public function setPassword($password)
   {
     $this->salt = self::generateSalt();
 
-    $this->password = self::hash($newPassword, $this->salt);
+    $this->password = self::hash($password, $this->salt);
   }
 
   /**
