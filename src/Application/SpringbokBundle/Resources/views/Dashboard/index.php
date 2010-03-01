@@ -14,4 +14,6 @@ $view->extend('SpringbokBundle::layout');
 
 ?>
 
-Dashboard \o/
+Dashboard \ò/
+
+<?php $view->actions->output('TicketBundle:Ticket:queue'); ?>
