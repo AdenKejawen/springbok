@@ -8,7 +8,7 @@
  */
 namespace Application\SpringbokBundle\Controller;
 
-use Symfony\Framework\WebBundle\Controller;
+use Applicationb\SpringbokBundle\Controller;
 
 /**
  * SpringbokController

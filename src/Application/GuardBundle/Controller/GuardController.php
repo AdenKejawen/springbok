@@ -2,7 +2,7 @@
 
 namespace Application\GuardBundle\Controller;
 
-use Symfony\Framework\WebBundle\Controller;
+use Application\SpringbokBundle\Controller;
 use Application\UserBundle\Model\User;
 
 class GuardController extends Controller
