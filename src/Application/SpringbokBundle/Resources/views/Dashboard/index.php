@@ -9,9 +9,6 @@
  * @subpackage      View
  */
 
-$view->extend('SpringbokBundle::layout');
-//we are using the main layout
-
 ?>
 <div id="dashboard">
   
@@ -31,3 +28,10 @@ $view->extend('SpringbokBundle::layout');
   </div>
 
 </div>
+
+<?php
+
+$view->extend('SpringbokBundle::layout');
+//we are using the main layout
+
+?>

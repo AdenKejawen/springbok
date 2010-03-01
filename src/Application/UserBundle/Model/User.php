@@ -29,7 +29,7 @@ class User extends DomainObject
 
   /**
    * username
-   * 
+   *
    * @var string
    */
   public $username;
@@ -39,11 +39,11 @@ class User extends DomainObject
    *
    * @var string
    */
-  public $password;
+  public $hashedPassword;
 
   /**
    * salt for the password
-   * 
+   *
    * @var string
    */
   public $salt;
@@ -72,10 +72,10 @@ class User extends DomainObject
   {
     return in_array($role, $this->roles);
   }
-  
+
   /**
    * add a role to this user
-   * 
+   *
    * @param string $role
    * @return void
    */
@@ -83,7 +83,7 @@ class User extends DomainObject
   {
     $this->removeRole($role);
     //make sure we don't get duplicates
-    
+
     $this->roles[] = $role;
   }
 
@@ -105,36 +105,28 @@ class User extends DomainObject
   }
 
   /**
+   * set a new password and hash with a random salt
+   *
+   * can be accessed as a setter property like $user->password = 'n3w_P455w0rd';
+   *
+   * @param string $newPassword
+   * @return void
+   */
+  public function setPassword($newPassword)
+  {
+    $this->salt = self::generateSalt();
+
+    $this->hashedPassword = self::hash($newPassword, $this->salt);
+  }
+
+  /**
    * check wether a password matches the hashed password
    *
    * @param string $password
    */
   public function passwordMatches($password)
   {
-    return self::hash($password, $this->salt) == $this->password;
-  }
-
-  /**
-   * set a new password and hash with a random salt
-   * 
-   * @param string $newPassword
-   * @return void
-   */
-  public function setPassword($password)
-  {
-    $this->salt = self::generateSalt();
-
-    $this->password = self::hash($password, $this->salt);
-  }
-
-  /**
-   * You can't get the password
-   *
-   * @throw \LogicException
-   */
-  public function getPassword()
-  {
-    throw new LogicException('You can\'t retrieve a user\'s password, sorry');
+    return self::hash($password, $this->salt) == $this->hashedPassword;
   }
 
   /**
