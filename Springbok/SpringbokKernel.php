@@ -47,6 +47,7 @@ class SpringbokKernel extends Kernel
       new Symfony\Framework\ZendBundle\Bundle(),
       new Symfony\Framework\DoctrineBundle\Bundle(),
       new Symfony\Framework\SwiftmailerBundle\Bundle(),
+      new Symfony\Framework\ProfilerBundle\Bundle(),
 
       new Bundle\MongoBundle\Bundle(),
 

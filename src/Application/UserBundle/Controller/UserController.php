@@ -2,7 +2,7 @@
 
 namespace Application\UserBundle\Controller;
 
-use Symfony\Framework\WebBundle\Controller;
+use Application\SpringbokBundle\Controller;
 
 class UserController extends Controller
 {

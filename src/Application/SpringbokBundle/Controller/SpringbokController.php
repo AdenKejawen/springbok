@@ -8,7 +8,7 @@
  */
 namespace Application\SpringbokBundle\Controller;
 
-use Applicationb\SpringbokBundle\Controller;
+use Application\SpringbokBundle\Controller;
 
 /**
  * SpringbokController
