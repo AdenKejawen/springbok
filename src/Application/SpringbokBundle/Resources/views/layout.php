@@ -28,7 +28,7 @@
 
       <div id="top">
         <h1>
-          <a href="<?php echo $view->router->generate('milestone_index') ?>">
+          <a href="<?php echo $view->router->generate('homepage') ?>">
             Springbok
           </a>
         </h1>
