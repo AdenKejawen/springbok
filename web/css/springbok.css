@@ -104,3 +104,17 @@ div.milestone div.content, div.ticket div.content, div.project div.content {
 div.milestone div.tickets, div.ticket div.comments, div.project div.milestones {
 	padding: 10px;
 }
+
+div#dashboard {
+	width: 950px;
+}
+
+div#queue, div#projects {
+	float: left;
+	background-color: #fbfafa;
+	padding: 10px;
+	border: 1px solid rgba(0,0,0, 0.05);
+	-webkit-border-radius: 10px;
+	width: 443px;
+	margin: 0 10px 0 0;
+}
