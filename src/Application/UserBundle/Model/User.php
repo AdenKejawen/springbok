@@ -128,6 +128,16 @@ class User extends DomainObject
   }
 
   /**
+   * You can't get the password
+   *
+   * @throw \LogicException
+   */
+  public function getPassword()
+  {
+    throw new LogicException('You can\'t retrieve a user\'s password, sorry');
+  }
+
+  /**
    * generate a random salt
    *
    * @return void
