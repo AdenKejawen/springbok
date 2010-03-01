@@ -138,8 +138,6 @@ class User extends DomainObject
   public function passwordMatches($password)
   {
     return self::hash($password, $this->salt) == $this->hashedPassword;
-
-    $this->hashedPassword = self::hash($password, $this->salt);
   }
 
   /**
