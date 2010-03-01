@@ -17,9 +17,13 @@
 
   <?php foreach ($queue as $ticket) : ?>
   
-  <li>
+  <li class="ticket">
     <a href="<?php echo $view->router->generate('ticket_read', array('id' => $ticket->id)) ?>">
-      <?php echo $ticket->title; ?>
+      
+      <span class="title"><?php echo $ticket->title; ?></span>
+      -
+      <span class="comment-count"><?php echo count($ticket->comments); ?></span>
+
     </a>
   </li>
   <?php endforeach ?>
