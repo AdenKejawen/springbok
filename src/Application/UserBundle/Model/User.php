@@ -70,7 +70,37 @@ class User
   {
     return in_array($role, $this->roles);
   }
+  
+  /**
+   * add a role to this user
+   * 
+   * @param string $role
+   * @return void
+   */
+  public function addRole($role)
+  {
+    $this->removeRole($role);
+    //make sure we don't get duplicates
+    
+    $this->roles[] = $role;
+  }
 
+  /**
+   * remove a role from the suer
+   *
+   * @param string $role
+   * @return void
+   */
+  public function removeRole($role)
+  {
+    foreach($this->roles as $key => $checkRole)
+    {
+      if ($checkRole == $role)
+      {
+        unset($this->roles[$key]);
+      }
+    }
+  }
 
   /**
    * check wether a password matches the hashed password
