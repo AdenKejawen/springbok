@@ -4,3 +4,6 @@ imports:
 zend.logger:
   priority: debug
   path:     %kernel.logs_dir%/%kernel.environment%.log
+
+profiler.config:
+  toolbar: true
