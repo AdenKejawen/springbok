@@ -9,7 +9,7 @@
 
 namespace Application\ProjectBundle\Controller;
 
-use Symfony\Framework\WebBundle\Controller;
+use Application\SpringbokBundle\Controller;
 use Symfony\Components\RequestHandler\Response;
 
 /**

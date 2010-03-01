@@ -33,18 +33,6 @@ class Mapper extends MongoMapper
   }
 
   /**
-   * get all milestones
-   *
-   * @return array[int]Milestone
-   */
-  public function getAll()
-  {
-    return static::fromCursor(
-      $this->getCollection()->find()
-    );
-  }
-
-  /**
    * Converts an array to a Milestone object
    *
    * @return \Application\TicketBundle\Model\Milestone

@@ -65,6 +65,36 @@ abstract class MongoMapper implements MapperInterface
   }
 
   /**
+   * get objects by a set of ids, useful for references
+   * 
+   * @param array $ids array of ids in string form ('hash1', 'hash2');
+   * @return array[int]Ticket
+   */
+  public function getByIds($ids)
+  {
+    foreach($ids as $key => $val)
+    {
+      $ids[$key] = new \MongoId($val);
+    }
+    
+    return static::fromCursor(
+      $this->getCollection()->find(array('_id' => array('$in' => $ids)))
+    );
+  }
+
+  /**
+   * Get all objects from the current collection
+   *
+   * @return array[int]Milestone
+   */
+  public function getAll()
+  {
+    return static::fromCursor(
+      $this->getCollection()->find()
+    );
+  }
+
+  /**
    * save an object
    *
    * @param object $object

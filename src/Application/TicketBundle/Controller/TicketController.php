@@ -9,7 +9,7 @@
 
 namespace Application\Ticketbundle\Controller;
 
-use Symfony\Framework\WebBundle\Controller;
+use Applicationb\SpringbokBundle\Controller;
 
 /**
  * TicketController

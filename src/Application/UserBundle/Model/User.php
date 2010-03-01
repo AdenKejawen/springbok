@@ -120,14 +120,14 @@ class User extends DomainObject
   }
 
   /**
-   * getter part of the property, should not be needed since you don't need access
-   * to the hashed password
+   * You can't get the password
    *
-   * @return void
+   * @throw \LogicException
    */
   public function getPassword()
   {
-    //do we throw an exception here?
+    throw new LogicException('You can\'t retrieve a user\'s password, sorry');
+
   }
 
   /**
@@ -138,6 +138,8 @@ class User extends DomainObject
   public function passwordMatches($password)
   {
     return self::hash($password, $this->salt) == $this->hashedPassword;
+
+    $this->hashedPassword = self::hash($password, $this->salt);
   }
 
   /**

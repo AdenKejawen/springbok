@@ -2,7 +2,7 @@
 
 namespace Application\GuardBundle\Controller;
 
-use Symfony\Framework\WebBundle\Controller;
+use Application\SpringbokBundle\Controller;
 use Application\UserBundle\Model\User;
 
 class GuardController extends Controller
@@ -16,7 +16,7 @@ class GuardController extends Controller
       if ($user && $user->password == $this->getRequest()->getParameter('password'))
       {
         $this->getUser()->login($user);
-        return $this->redirect($this->generateUrl('user_dashboard'));
+        return $this->redirect($this->generateUrl('dashboard'));
       }
     }
 
@@ -48,7 +48,7 @@ class GuardController extends Controller
 
       $this->getUser()->login($user);
 
-      return $this->redirect($this->generateUrl('user_dashboard'));
+      return $this->redirect($this->generateUrl('dashboard'));
     }
 
     return $this->render('GuardBundle:Guard:signup');
