@@ -9,6 +9,8 @@
 
 namespace Application\TicketBundle\Model;
 
+use Application\SpringbokBundle\Model\DomainObject;
+
 /**
  * Milestone
  *
@@ -16,7 +18,7 @@ namespace Application\TicketBundle\Model;
  * @package         SpringbokBundle
  * @subpackage      Model
  */
-class Milestone
+class Milestone extends DomainObject
 {
   /**
    * identifier

@@ -9,6 +9,8 @@
 
 namespace Application\TicketBundle\Model; 
 
+use Application\SpringbokBundle\Model\DomainObject;
+
 /**
  * Ticket
  * 
@@ -18,7 +20,7 @@ namespace Application\TicketBundle\Model;
  * @package			TicketBundle
  * @subpackage		Model
  */
-class Ticket
+class Ticket extends DomainObject
 {
   /**
    * id

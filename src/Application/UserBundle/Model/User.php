@@ -9,6 +9,8 @@
 
 namespace Application\UserBundle\Model;
 
+use Application\SpringbokBundle\Model\DomainObject;
+
 /**
  * User
  *
@@ -16,7 +18,7 @@ namespace Application\UserBundle\Model;
  * @package         UserBundle
  * @subpackage      Model
  */
-class User
+class User extends DomainObject
 {
   /**
    * Id
