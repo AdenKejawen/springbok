@@ -21,15 +21,15 @@ class DomainObject
     /**
      * overloaded getter
      *
-     * @param string $what
+     * @param string $name
      */
-    public function __get($what)
+    public function __get($name)
     {
-      $funcName = 'get' . ucfirst($what);
-      //check if getWhat() exists then use that, as a kind of poor man's property
+      $funcName = 'get' . ucfirst($name);
+      //check if getName() exists then use that, as a kind of poor man's property
 
       if (!method_exists($this, $funcName)) {
-        throw new Excepton('Property ' . $what . ' not found in object of class ' . get_class($this));
+        throw new Excepton('Property ' . $name . ' not found in object of class ' . get_class($this));
       }
 
       return $this->$funcName();
@@ -38,17 +38,20 @@ class DomainObject
     /**
      * setter
      * 
-     * @param string $what
+     * @param string $name
      * @param mixed $value
      */
-    public function __set($what, $value)
+    public function __set($name, $value)
     {
       $funcName = 'set' . ucfirst($what);
 
-      if (!method_exists($this, $funcName)) {
-        //do we still set it? :x
+      if (method_exists($this, $funcName))
+      {
+        $this->$funcName($value);
       }
-
-      $this->$funcName($value);
+      else
+      {
+        $this->$name = $value;
+      }
     }
 }
