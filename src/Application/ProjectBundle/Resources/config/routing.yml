@@ -1,0 +1,7 @@
+project_index:
+  pattern: projects
+  defaults: { _bundle: ProjectBundle, _controller: Project, _action: index }
+
+project_read:
+  pattern: project/:id
+  defaults: { _bundle: ProjectBundle, _controller: Project, _action: read }

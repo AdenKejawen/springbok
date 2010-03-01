@@ -2,7 +2,13 @@
 
 ## Springbok is a Symfony 2 Ticket system
 
-Yes, another ticket system. After twitter apps, the new hello world. Still, we think there is something to be gained by creating something new. First of all, we'll be focussing on new technologies. For instance, we're using a document-based persistance layer, as opposed to the traditional relational dbms. Symfony 2 is shaping up to be a serious contender in the php framework world, but is entirely new. In short, Springbok is built to be future proof, with a focus on speed and cute stripes.
+Yes, another ticket system. After twitter apps, the new hello world. Still, we
+think there is something to be gained by creating something new. First of all,
+we'll be focussing on new technologies. For instance, we're using a
+document-based persistance layer, as opposed to the traditional relational
+dbms. Symfony 2 is shaping up to be a serious contender in the php framework
+world, but is entirely new. In short, Springbok is built to be future proof,
+with a focus on speed and cute stripes.
 
 ## Goals
 
