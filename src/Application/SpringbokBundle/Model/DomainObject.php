@@ -37,13 +37,13 @@ class DomainObject
 
   /**
    * setter
-   * 
+   *
    * @param string $name
    * @param mixed $value
    */
   public function __set($name, $value)
   {
-    $funcName = 'set' . ucfirst($what);
+    $funcName = 'set' . ucfirst($name);
 
     if (method_exists($this, $funcName))
     {
